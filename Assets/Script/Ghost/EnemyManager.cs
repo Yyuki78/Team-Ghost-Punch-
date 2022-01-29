@@ -14,6 +14,18 @@ public class EnemyManager : MonoBehaviour
         Level3, // ç≈å„
     }
     private LevelEnum _level = LevelEnum.Level1; // EnemyÇÃLevel
+                                                 /// <summary>
+                                                 /// Level1Ç©Ç«Ç§Ç©
+                                                 /// </summary>
+    public bool IsLevel1 => LevelEnum.Level1 == _level;
+    /// <summary>
+    /// Level2Ç©Ç«Ç§Ç©
+    /// </summary>
+    public bool IsLevel2 => LevelEnum.Level2 == _level;
+    /// <summary>
+    /// Level3Ç©Ç«Ç§Ç©
+    /// </summary>
+    public bool IsLevel3 => LevelEnum.Level3 == _level;
     //ÇªÇÍÇºÇÍÇÃEnemyÇéÛÇØéÊÇÈ
     [SerializeField] GameObject Enemy1;
     private EnemyStatus _status1;

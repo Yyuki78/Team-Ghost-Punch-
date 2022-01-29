@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.1895823, g: 6.4389234, b: 13.5275955, a: 1}
+  m_IndirectSpecularColor: {r: 5.1859093, g: 7.5201416, b: 14.913361, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 627993430}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627993424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08812dcc89408524faa7e98c8b72ff12, type: 3}
   m_Name: 
@@ -360,13 +360,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -474,13 +474,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -549,17 +549,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: m_Radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -623,17 +619,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: m_Radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -742,13 +734,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -1039,17 +1031,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: m_Radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
+    - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950288191, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
@@ -1108,6 +1096,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7316198251381755044, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_RootOrder
       value: 11
