@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 372980386}
   - component: {fileID: 372980388}
   - component: {fileID: 372980387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CollisionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 1950288187}
   - component: {fileID: 1950288190}
   - component: {fileID: 6276686435528829084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GhostEnemy
-  m_TagString: Untagged
+  m_TagString: EnemyGhost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,8 +225,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
-  m_Center: {x: 0, y: 0.6, z: 0}
+  m_Radius: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5952925300519115719
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5952925300519115576}
   - component: {fileID: 5952925300519115577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gohst_temp01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952925300519115719}
   m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.36, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5952925299402192286}
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f9938eeb9504485f849100c49a1bd3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7daf17a9b32bf4803a5e25c14a54209e, type: 3}
+  m_Sprite: {fileID: -7308000612466545997, guid: 244e2c9e070404059a1c84c8c36a59a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
