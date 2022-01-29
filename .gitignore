@@ -14,3 +14,5 @@ UserSettings/
 *.csproj
 
 obj/
+Assets/Script/Ghost/CubeMove.cs
+Assets/Script/Ghost/CubeMove.cs.meta
