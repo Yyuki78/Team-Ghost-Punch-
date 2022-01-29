@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 372980386}
   - component: {fileID: 372980388}
   - component: {fileID: 372980387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CollisionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 1950288187}
   - component: {fileID: 1950288190}
   - component: {fileID: 6276686435528829084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GhostEnemy
-  m_TagString: Untagged
+  m_TagString: EnemyGhost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5952925300519115576}
   - component: {fileID: 5952925300519115577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gohst_temp01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 5952925300519115719}
   m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
   m_LocalPosition: {x: 0.36, y: 0, z: -1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5952925299402192286}
   m_RootOrder: 0
