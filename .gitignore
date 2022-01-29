@@ -8,3 +8,9 @@ Temp/
 *.sln
 
 UserSettings/
+
+.vs/
+
+*.csproj
+
+obj/
