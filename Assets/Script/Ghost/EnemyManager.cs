@@ -67,32 +67,32 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         //EnemyÇ™ì|ÇÍÇΩéûÇ…ã≠âªópÇÃïœêîÇ+1Ç∑ÇÈ
-        if (_status1.Life == 0 || once1 == false)
+        if (_status1.Life == 0 && once1 == false)
         {
             once1 = true;
             StrongEvent++;
         }
-        if (_status2.Life == 0 || once2 == false)
+        if (_status2.Life == 0 && once2 == false)
         {
             once2 = true;
             StrongEvent++;
         }
-        if (_status3.Life == 0 || once3 == false)
+        if (_status3.Life == 0 && once3 == false)
         {
             once3 = true;
             StrongEvent++;
         }
-        if (_status4.Life == 0 || once4 == false)
+        if (_status4.Life == 0 && once4 == false)
         {
             once4 = true;
             StrongEvent++;
         }
-        if (_status5.Life == 0 || once5 == false)
+        if (_status5.Life == 0 && once5 == false)
         {
             once5 = true;
             StrongEvent++;
         }
-        if (_status6.Life == 0 || once6 == false)
+        if (_status6.Life == 0 && once6 == false)
         {
             once6 = true;
             StrongEvent++;
