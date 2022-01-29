@@ -49,6 +49,7 @@ public class EnemyLevel : MonoBehaviour
         //ŒŸ’m”ÍˆÍ‚Í4
         _agent.speed = 1.5f;
         _collider.radius = 4.0f;
+        //NormalState‚Ì‚Íœpœj‚·‚é(Level1‚Í‚µ‚È‚¢)
     }
 
     void Level2()
@@ -60,6 +61,8 @@ public class EnemyLevel : MonoBehaviour
         //ŒŸ’m”ÍˆÍ‚Í5
         _agent.speed = 2.0f;
         _collider.radius = 5.0f;
+        //NormalState‚Ì‚Íœpœj‚·‚é(Level2‚Í‚Ì‚ñ‚Ñ‚ès‚¤)
+
     }
 
     void Level3()
@@ -70,5 +73,6 @@ public class EnemyLevel : MonoBehaviour
         //ŒŸ’m”ÍˆÍ‚Í6
         _agent.speed = 2.5f;
         _collider.radius = 6.0f;
+        //NormalState‚Ì‚Íœpœj‚·‚é(Level3‚Í•’Ê‚É“®‚«‰ñ‚é)
     }
 }
