@@ -5,24 +5,23 @@ public class SetPosition : MonoBehaviour
 {
 
     //初期位置
-    private Transform myTransform;
     private Vector3 startPosition;
     //目的地
     private Vector3 destination;
 
-    void Start()
+    void Awake()
     {
         //　初期位置を設定
-        myTransform = this.transform;
-        startPosition = myTransform.position;
+        startPosition = this.transform.position;
         SetDestination(transform.position);
+        Debug.Log(startPosition);
     }
 
     //　ランダムな位置の作成
     public void CreateRandomPosition()
     {
         //　ランダムなVector2の値を得る
-        var randDestination = Random.insideUnitCircle * 6;
+        var randDestination = Random.insideUnitCircle * 4;
         //　現在地にランダムな位置を足して目的地とする
         SetDestination(startPosition + new Vector3(randDestination.x, 0, randDestination.y));
     }

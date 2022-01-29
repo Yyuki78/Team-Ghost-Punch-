@@ -27,6 +27,7 @@ public class RandomEnemyMove : MonoBehaviour
     void Start()
     {
         setPosition = GetComponent<SetPosition>();
+        destination = this.transform.position;
         setPosition.CreateRandomPosition();
         velocity = Vector3.zero;
         arrived = false;
@@ -67,7 +68,7 @@ public class RandomEnemyMove : MonoBehaviour
                 arrived = false;
                 elapsedTime = 0f;
             }
-            Debug.Log(elapsedTime);
+            //Debug.Log(elapsedTime);
         }
     }
 }
