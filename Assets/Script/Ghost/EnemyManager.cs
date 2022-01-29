@@ -14,6 +14,19 @@ public class EnemyManager : MonoBehaviour
         Level3, // 最後
     }
     private LevelEnum _level = LevelEnum.Level1; // EnemyのLevel
+    /// <summary>
+    /// Level1かどうか
+    /// </summary>
+    public bool IsLevel1 => LevelEnum.Level1 == _level;
+    /// <summary>
+    /// Level2かどうか
+    /// </summary>
+    public bool IsLevel2 => LevelEnum.Level2 == _level;
+    /// <summary>
+    /// Level3かどうか
+    /// </summary>
+    public bool IsLevel3 => LevelEnum.Level3 == _level;
+
     //それぞれのEnemyを受け取る
     [SerializeField] GameObject Enemy1;
     private EnemyStatus _status1;
@@ -55,32 +68,32 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         //Enemyが倒れた時に強化用の変数を+1する
-        if (_status1.Life == 0 || once1 == false)
+        if (_status1.Life == 0 && once1 == false)
         {
             once1 = true;
             StrongEvent++;
         }
-        if (_status2.Life == 0 || once2 == false)
+        if (_status2.Life == 0 && once2 == false)
         {
             once2 = true;
             StrongEvent++;
         }
-        if (_status3.Life == 0 || once3 == false)
+        if (_status3.Life == 0 && once3 == false)
         {
             once3 = true;
             StrongEvent++;
         }
-        if (_status4.Life == 0 || once4 == false)
+        if (_status4.Life == 0 && once4 == false)
         {
             once4 = true;
             StrongEvent++;
         }
-        if (_status5.Life == 0 || once5 == false)
+        if (_status5.Life == 0 && once5 == false)
         {
             once5 = true;
             StrongEvent++;
         }
-        if (_status6.Life == 0 || once6 == false)
+        if (_status6.Life == 0 && once6 == false)
         {
             once6 = true;
             StrongEvent++;
@@ -91,7 +104,7 @@ public class EnemyManager : MonoBehaviour
         {
             //初めの状態、Enemyの3分の1を倒すまで続く
             //ユーレイは基本的に部屋に居て、自分からは余り動かない
-            //追いかける速度は1.5
+            //追いかける速度は遅い-->1.5?
             //検知範囲は4
             _level = LevelEnum.Level1;
         }
