@@ -45,18 +45,19 @@ public class EnemyStatus : MobStatus
     }
 
     //後でRunからNormalに戻る処理を追加する
+    /*
     public void StandUp()
     {
-        Debug.Log("見失ったので通常状態になります");
-        RunEnable = false;
+        Debug.Log("立ち上がります");
+        SitEnable = false;
         if (once == true)
         {
             once = false;
             base.GoToNormalStateIfPossible();
         }
-        _animator.SetBool("Run", false);
-        StartCoroutine(RunEnableCoroutine());
-    }
+        _animator.SetBool("Sit", false);
+        StartCoroutine(SitEnableCoroutine());
+    }*/
 
     /// <summary>
     /// 倒された時の消滅コルーチンです。
