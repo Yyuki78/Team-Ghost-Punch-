@@ -31,12 +31,12 @@ public class EnemyMove : MonoBehaviour
     {
         if (_level.Charge==false)
         {
-            mask = LayerMask.GetMask(new string[] { LayerName1 });
+            mask = LayerMask.GetMask(new string[] { LayerName2 });
             raycastLayerMask = mask;
         }
         else
         {
-            Debug.Log("チャージ中です。");
+            Debug.Log("チャージ中またはゴーストモードです");
             mask = LayerMask.GetMask(new string[] { LayerName2 });
             raycastLayerMask = mask;
         }

@@ -36,7 +36,7 @@ public class ColorChange : MonoBehaviour
 
     IEnumerator Transparent()
     {
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < 255; i++)
         {
             sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 1);
             yield return new WaitForSeconds(0.01f);
@@ -45,7 +45,7 @@ public class ColorChange : MonoBehaviour
 
     IEnumerator Transparent2()
     {
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < 255; i++)
         {
             sprite.material.color = sprite.material.color + new Color32(0, 0, 0, 1);
             yield return new WaitForSeconds(0.01f);

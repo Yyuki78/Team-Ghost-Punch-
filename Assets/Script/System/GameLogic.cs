@@ -25,6 +25,9 @@ public class GameLogic : MonoBehaviour
 		public bool CanSee { set; get; } = false;
 		public bool IsDead { set; get; } = false;
 
+		public SpriteRenderer renderer { set; get; } = null;
+		public Material material { set; get; } = null;
+
 		public void ResetEveryFrame() {
 			IsAround = false;
 			CanSee = false;
@@ -40,17 +43,18 @@ public class GameLogic : MonoBehaviour
 	float m_aroundPlayerDistance = 10.0f;
 	[SerializeField]
 	float m_canSeeDistance = 3.0f;
+	[SerializeField]
+	int m_currentAroundEnemy = 0;
+	[SerializeField]
+	float m_crossFadeTime = 1.0f;
 
 
 	List<EnemyInfo> m_enemys = new List<EnemyInfo>();
 	Player m_player = null;
 	float [] m_weights;
 	AudioMixerSnapshot[] m_snapshots = null;
+	int m_lastMatchIdx = -1;
 
-	[SerializeField]
-	int m_currentAroundEnemy = 0;
-	[SerializeField]
-	float m_crossFadeTime = 1.0f;
 
 
 
@@ -60,6 +64,8 @@ public class GameLogic : MonoBehaviour
 			var info = new EnemyInfo();
 			info.Enemy = ghost;
 			info.Agent = ghost.GetComponent<NavMeshAgent>();
+			info.renderer = ghost.GetComponentInChildren<SpriteRenderer>();
+			info.material = info.renderer.material;
 		}
 
 		var players = GameObject.FindObjectsOfType<Player>();
@@ -79,7 +85,8 @@ public class GameLogic : MonoBehaviour
 	}
 
 	public void Update() {
-		//checkGhostAroundPlayer();
+		checkGhostAroundPlayer();
+		//updateGhostVisibility();
 		updateAudio();
 	}
 
@@ -106,8 +113,25 @@ public class GameLogic : MonoBehaviour
 		}
 	}
 
-	int m_lastMatchIdx = -1;
+	/*
+	public void updateGhostVisibility() {
+		foreach(var ghost in m_enemys) {
+			var color = ghost.material.color;
+			if(ghost.CanSee == false) {
+				color.a = 0.0f;
+			} else {
+				color.a = 1.0f;
+			}
+			ghost.material.color = color;
+		}
+	}
+	*/
 
+	
+
+	/// <summary>
+	/// オーディオの更新。ゴーストの数に合わせて曲をクロスフェードで再生
+	/// </summary>
 	public void updateAudio() {
 
 		int numGhost = m_currentAroundEnemy;
