@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     bool m_isChargeMode = false;
     [SerializeField]
-    bool m_isGhostObject = false;
+    public bool m_isGhostObject = false;
     [SerializeField]
     float m_chargePowerAddSpeed = 1.0f;
     [SerializeField]
