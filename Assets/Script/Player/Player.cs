@@ -45,6 +45,7 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         EnableMove = true;
+        m_isChargeMode = false;
 
         if(m_isGhostObject) {
             m_playerGhost.SetActive(false);
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour {
             var velocity = input * m_moveSpeed;
 
             m_rigidbody.velocity = velocity;
-            if(m_spriteRenderer != null && Mathf.Abs(x) > 0.2f) {
+            if(m_spriteRenderer != null && input.magnitude > 0.2f) {
                 if(x > 0.0f) {
                     m_spriteRenderer.flipX = true;
                 } else {
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour {
                 // チャージ中
                 m_animator.SetBool("Charge", true);
                 EnableMove = false;
+                m_isChargeMode = true;
 
                 if(m_chargePower < MaxChargePower) {
                     // 回復
@@ -101,6 +103,7 @@ public class Player : MonoBehaviour {
                 // チャージなし
                 m_animator.SetBool("Charge", false);
                 EnableMove = true;
+                m_isChargeMode = false;
             }
 
             if(m_chargePower >= MaxChargePower) {
