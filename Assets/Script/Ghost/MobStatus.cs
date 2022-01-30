@@ -98,7 +98,7 @@ public abstract class MobStatus : MonoBehaviour
     /// </summary>
     public void GoToRunStateIfPossible()
     {
-        if (!IsRunnable) return;
+        if (!IsMovable) return;
 
         _state = StateEnum.Run;
     }
