@@ -31,12 +31,12 @@ public class EnemyMove : MonoBehaviour
     {
         if (_level.Charge==false)
         {
-            mask = LayerMask.GetMask(new string[] { LayerName1 });
+            mask = LayerMask.GetMask(new string[] { LayerName2 });
             raycastLayerMask = mask;
         }
         else
         {
-            Debug.Log("チャージ中です。");
+            Debug.Log("チャージ中またはゴーストモードです");
             mask = LayerMask.GetMask(new string[] { LayerName2 });
             raycastLayerMask = mask;
         }
@@ -52,7 +52,7 @@ public class EnemyMove : MonoBehaviour
         }
 
         // 検知したオブジェクトに「Player」のタグがついていれば、そのオブジェクトを追いかける
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") || collider.CompareTag("PlayerGhost"))
         {
             //EnemyのステータスをRunに変更
             _status.GoToRunStateIfPossible();
@@ -85,7 +85,7 @@ public class EnemyMove : MonoBehaviour
     public void GoLoiterState(Collider collider)
     {
         // 検知したオブジェクトに「Player」のタグがついていれば、徘徊モードに切り替える
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") || collider.CompareTag("PlayerGhost"))
         {
             //動ける＋追いかけていた状態でないならreturn
             if (!_status.IsMovable)
