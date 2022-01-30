@@ -10,6 +10,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.5f; // 攻撃後のクールダウン（秒）
     [SerializeField] private Collider attackCollider;
     public bool attckone = true;
+    private bool attackcor = true;
     private MobStatus _status;
 
     private void Start()
@@ -25,6 +26,8 @@ public class EnemyAttack : MonoBehaviour
         if (!_status.IsAttackable) return; // ステータスと衝突したオブジェクトで攻撃可否を判断
 
         _status.GoToAttackStateIfPossible();
+        //追記
+        StartCoroutine(AttackCoroutine());
     }
 
     /// <summary>
@@ -36,13 +39,14 @@ public class EnemyAttack : MonoBehaviour
         AttackIfPossible();
     }
 
+    /*
     /// <summary>
     /// 攻撃の開始時に呼ばれます。
     /// </summary>
     public void OnAttackStart()
     {
         attackCollider.enabled = true;
-    }
+    }*/
 
     /// <summary>
     /// attackColliderが攻撃対象にHitした時に呼ばれます。
@@ -57,6 +61,7 @@ public class EnemyAttack : MonoBehaviour
         //targetMob.Damage(1);
     }
 
+    /*
     /// <summary>
     /// 攻撃の終了時に呼ばれます。
     /// </summary>
@@ -64,12 +69,24 @@ public class EnemyAttack : MonoBehaviour
     {
         attackCollider.enabled = false;
         StartCoroutine(CooldownCoroutine());
-    }
+    }*/
 
     private IEnumerator CooldownCoroutine()
     {
         yield return new WaitForSeconds(attackCooldown);
         _status.GoToNormalStateIfPossible();
         attckone = true;
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        if (attckone == false) yield break;
+        attckone = false;
+        yield return new WaitForSeconds(0.2f);
+        attackCollider.enabled = true;
+        yield return new WaitForSeconds(0.2f);
+        attackCollider.enabled = false;
+        StartCoroutine(CooldownCoroutine());
+        yield break;
     }
 }
