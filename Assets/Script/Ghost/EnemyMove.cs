@@ -36,6 +36,10 @@ public class EnemyMove : MonoBehaviour
                             transform.forward,
                             float.PositiveInfinity,
                             mask1))
+            Physics.Raycast(transform.position,
+            transform.forward,
+            float.PositiveInfinity,
+            mask1);
         {
 
             Debug.Log("Raycast Hit!Mask1");
@@ -43,6 +47,10 @@ public class EnemyMove : MonoBehaviour
         // 10•bŒã‚ÉMask2
         if (step_time >= 10.0f)
         {
+            Physics.Raycast(transform.position,
+            transform.forward,
+            float.PositiveInfinity,
+            mask2);
             if (Physics.Raycast(transform.position,
                             transform.forward,
                             float.PositiveInfinity,
