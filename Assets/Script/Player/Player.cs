@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     float m_chargePowerAddSpeed = 1.0f;
     [SerializeField]
     float m_changingActionTime = 1.0f;
+    AudioSource m_audioSource;
 
     // チャージ中か
     public bool IsChargeMode { get { return m_isChargeMode; } }
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour {
         m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         m_playerHuman = GameObject.FindGameObjectWithTag("Player");
         m_playerGhost = GameObject.FindGameObjectWithTag("PlayerGhost");
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -87,6 +89,11 @@ public class Player : MonoBehaviour {
         if(m_isGhostObject == false && IsDead == false) {
             var isCharging = Input.GetButton("Charge");
             if(isCharging) {
+
+                if(m_audioSource.isPlaying == false) {
+                    m_audioSource.Play();
+                }
+
                 // チャージ中
                 m_animator.SetBool("Charge", true);
                 EnableMove = false;
@@ -104,6 +111,10 @@ public class Player : MonoBehaviour {
                 m_animator.SetBool("Charge", false);
                 EnableMove = true;
                 m_isChargeMode = false;
+
+                if(m_audioSource.isPlaying) {
+                    m_audioSource.Stop() ;
+                }
             }
 
             if(m_chargePower >= MaxChargePower) {

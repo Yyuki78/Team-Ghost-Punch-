@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1133470423, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_Intensity
+      value: 12.811973
+      objectReference: {fileID: 0}
+    - target: {fileID: 27411228263107926, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_audioSource
+      value: 
+      objectReference: {fileID: 1534711649238734127}
     - target: {fileID: 27411228263107926, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_isGhostObject
       value: 1
@@ -93,3 +101,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+--- !u!82 &1534711649238734127 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6020393696585707732, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+  m_PrefabInstance: {fileID: 5098312506527098363}
+  m_PrefabAsset: {fileID: 0}
