@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.1895823, g: 6.4389234, b: 13.5275955, a: 1}
+  m_IndirectSpecularColor: {r: 5.1772003, g: 7.5067215, b: 14.89032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,6 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c84ad73f42e5746638ea2219503338d3, type: 3}
+--- !u!1 &316544152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9015141937689025609, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+  m_PrefabInstance: {fileID: 9015141937684394355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &437373849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1678,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: raycastLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 
@@ -2097,6 +2114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 

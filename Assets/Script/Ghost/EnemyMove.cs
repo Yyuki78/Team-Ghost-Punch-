@@ -10,10 +10,8 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private LayerMask raycastLayerMask; // レイヤーマスク
     const string LayerName1 = "Default";
     const string LayerName2 = "Nothing";
-    private float step_time;
-    private int mask1;
-    private int mask2;
-    const int LayerNum = 8;
+    private int mask;
+    private EnemyLevel _level;
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
@@ -21,44 +19,24 @@ public class EnemyMove : MonoBehaviour
 
     public void Start()
     {
-        mask1 = LayerMask.GetMask(new string[] { LayerName1 });
-        mask2 = LayerMask.GetMask(new string[] { LayerName2 });
-        step_time = 0.0f;
+        mask = LayerMask.GetMask(new string[] { LayerName1 });
+        _level = GetComponent<EnemyLevel>();
         _agent = GetComponent<NavMeshAgent>(); // NavMeshAgentを保持しておく
         _status = GetComponent<EnemyStatus>();
     }
 
     public void Update()
     {
-        // 経過時間をカウント
-        step_time += Time.deltaTime;
-        if (Physics.Raycast(transform.position,
-                            transform.forward,
-                            float.PositiveInfinity,
-                            mask1))
-            Physics.Raycast(transform.position,
-            transform.forward,
-            float.PositiveInfinity,
-            mask1);
+        if (_level.Charge==false)
         {
-
-            Debug.Log("Raycast Hit!Mask1");
+            mask = LayerMask.GetMask(new string[] { LayerName1 });
+            raycastLayerMask = mask;
         }
-        // 10秒後にMask2
-        if (step_time >= 10.0f)
+        else
         {
-            Physics.Raycast(transform.position,
-            transform.forward,
-            float.PositiveInfinity,
-            mask2);
-            if (Physics.Raycast(transform.position,
-                            transform.forward,
-                            float.PositiveInfinity,
-                            mask2))
-            {
-
-                Debug.Log("Raycast Hit!Mask2");
-            }
+            Debug.Log("チャージ中です。");
+            mask = LayerMask.GetMask(new string[] { LayerName2 });
+            raycastLayerMask = mask;
         }
     }
 

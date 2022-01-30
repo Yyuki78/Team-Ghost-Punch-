@@ -58,6 +58,7 @@ public class EnemyAttack : MonoBehaviour
         if (null == targetMob) return;
 
         // プレイヤーにダメージを与える
+        Debug.Log("攻撃します");
         //targetMob.Damage(1);
     }
 

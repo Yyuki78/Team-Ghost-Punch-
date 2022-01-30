@@ -10,12 +10,16 @@ public class EnemyLevel : MonoBehaviour
     [SerializeField] GameObject CollisionDetector;
     private SphereCollider _collider;
     private EnemyMove _move;
+    [SerializeField] GameObject Player;
+    private Player _player;
+    public bool Charge = false; //Charge中かどうか
     private NavMeshAgent _agent; private void Awake()
     {
         _manager = EnemyManager.GetComponent<EnemyManager>();
         _collider = CollisionDetector.GetComponent<SphereCollider>();
         _move = GetComponent<EnemyMove>();
         _agent = GetComponent<NavMeshAgent>();
+        _player = Player.GetComponent<Player>();
     }
     // Start is called before the first frame update
     void Start()
@@ -26,19 +30,35 @@ public class EnemyLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Levelに応じて難易度を切り替える
-        if (_manager.IsLevel1)
+        if (_player.IsChargeMode == true)
         {
-            Level1();
-        }
-        else if (_manager.IsLevel2)
-        {
-            Level2();
+            ChargeTrue();
         }
         else
         {
-            Level3();
+            Charge = false;
+            //Levelに応じて難易度を切り替える
+            if (_manager.IsLevel1)
+            {
+                Level1();
+            }
+            else if (_manager.IsLevel2)
+            {
+                Level2();
+            }
+            else
+            {
+                Level3();
+            }
         }
+    }
+
+    void ChargeTrue()
+    {
+        //Playerがチャージしている状態
+        //かなりの範囲からEnemyが検知する
+        Charge = true;
+        _collider.radius = 10.0f;
     }
 
     void Level1()
