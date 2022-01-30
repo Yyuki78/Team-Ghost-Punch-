@@ -59,6 +59,7 @@ public class Player : MonoBehaviour {
     {
         updateMove();
         updateCharge();
+        updateAttack();
     }
 
     void updateMove() {
@@ -153,6 +154,22 @@ public class Player : MonoBehaviour {
             var player = m_playerGhost.GetComponent<Player>();
             player.IsGhostMode = true;
             m_playerGhost.transform.position = transform.position;
+        }
+    }
+
+    void updateAttack() {
+        if(m_isGhostObject) {
+            if(Input.GetButtonDown("Fire1")) {
+                m_animator.SetTrigger("Attack");
+            }
+        }
+    }
+
+    void receiveDamage(int damage) {
+        if(m_isGhostObject == false && IsDead) {
+            // にんげんへのダメージ
+        } else {
+            // 死体へのダメージ
         }
     }
 }
