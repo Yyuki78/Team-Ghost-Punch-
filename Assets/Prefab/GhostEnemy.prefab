@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 16
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &372980387
 MonoBehaviour:
@@ -456,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5952925300519115576}
   - component: {fileID: 5952925300519115577}
+  - component: {fileID: 730481145}
   m_Layer: 10
   m_Name: Gohst_temp01
   m_TagString: Untagged
@@ -528,3 +529,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &730481145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952925300519115719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff155cfd9d62ab4e99ce022ef8eb482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

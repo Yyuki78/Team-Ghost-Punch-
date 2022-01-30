@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 5.1859093, g: 7.520233, b: 14.913483, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1273,10 +1273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: m_Radius
-      value: 16
-      objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -1476,6 +1476,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -1636,6 +1640,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -1710,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -1890,6 +1902,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -2637,6 +2653,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 730481145, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
