@@ -11,7 +11,9 @@ public class EnemyMove : MonoBehaviour
     const string LayerName1 = "Default";
     const string LayerName2 = "Nothing";
     private int mask;
+
     private EnemyLevel _level;
+    public bool RanWalk = false;//徘徊出来るかどうかをEnemyLevelに受け渡す
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
@@ -52,6 +54,10 @@ public class EnemyMove : MonoBehaviour
         // 検知したオブジェクトに「Player」のタグがついていれば、そのオブジェクトを追いかける
         if (collider.CompareTag("Player"))
         {
+            //EnemyのステータスをRunに変更
+            _status.GoToRunStateIfPossible();
+            RanWalk = false;
+
             var positionDiff = collider.transform.position - transform.position; // 自身とプレイヤーの座標差分を計算
             var distance = positionDiff.magnitude; // プレイヤーとの距離を計算
             var direction = positionDiff.normalized; // プレイヤーへの方向
@@ -72,6 +78,25 @@ public class EnemyMove : MonoBehaviour
                 // 見失ったら停止する
                 _agent.isStopped = true;
             }
+        }
+    }
+
+    // CollisionDetectorのonTriggerExitにセットし、衝突判定を受け取るメソッド
+    public void GoLoiterState(Collider collider)
+    {
+        // 検知したオブジェクトに「Player」のタグがついていれば、徘徊モードに切り替える
+        if (collider.CompareTag("Player"))
+        {
+            //動ける＋追いかけていた状態でないならreturn
+            if (!_status.IsMovable)
+            {
+                _agent.isStopped = true;
+                return;
+            }
+            if (!_status.IsRunState) return;
+
+            _status.GoToNormalStateIfPossible();
+            RanWalk = true;
         }
     }
 }

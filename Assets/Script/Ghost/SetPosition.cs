@@ -9,19 +9,22 @@ public class SetPosition : MonoBehaviour
     //目的地
     private Vector3 destination;
 
+    //移動距離
+    public int distance = 4;
+
     void Awake()
     {
         //　初期位置を設定
         startPosition = this.transform.position;
         SetDestination(transform.position);
-        Debug.Log(startPosition);
+        //Debug.Log(startPosition);
     }
 
     //　ランダムな位置の作成
     public void CreateRandomPosition()
     {
         //　ランダムなVector2の値を得る
-        var randDestination = Random.insideUnitCircle * 4;
+        var randDestination = Random.insideUnitCircle * distance;
         //　現在地にランダムな位置を足して目的地とする
         SetDestination(startPosition + new Vector3(randDestination.x, 0, randDestination.y));
     }

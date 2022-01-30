@@ -77,7 +77,19 @@ MonoBehaviour:
         m_CallState: 2
   onTriggerExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1950288185}
+        m_TargetAssemblyTypeName: EnemyMove, Assembly-CSharp
+        m_MethodName: GoLoiterState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1316365661
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +263,8 @@ GameObject:
   - component: {fileID: 5586306235391689463}
   - component: {fileID: 1912004362}
   - component: {fileID: 1912004370}
+  - component: {fileID: 1912004371}
+  - component: {fileID: 1912004372}
   m_Layer: 10
   m_Name: GhostEnemy
   m_TagString: EnemyGhost
@@ -310,6 +324,7 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  RanWalk: 0
 --- !u!114 &1950288186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +388,8 @@ MonoBehaviour:
   CollisionDetector: {fileID: 372980385}
   Player: {fileID: 0}
   Charge: 0
+  level2: 0
+  level3: 0
 --- !u!114 &1912004362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +419,33 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1912004371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952925299402192285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4379eb49b199f9747989be997290aaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 4
+--- !u!114 &1912004372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952925299402192285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f87a90e52d5c94c8ab4f1512e7b787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 1.5
+  waitTime: 3
 --- !u!1 &5952925300519115719
 GameObject:
   m_ObjectHideFlags: 0

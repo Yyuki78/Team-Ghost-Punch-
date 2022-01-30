@@ -10,7 +10,6 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.5f; // 攻撃後のクールダウン（秒）
     [SerializeField] private Collider attackCollider;
     public bool attckone = true;
-    private bool attackcor = true;
     private MobStatus _status;
 
     private void Start()

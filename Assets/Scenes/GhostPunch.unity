@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.1895823, g: 6.4389234, b: 13.5275955, a: 1}
+  m_IndirectSpecularColor: {r: 5.187271, g: 7.524849, b: 14.931763, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1680,11 +1680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950288185, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
-      propertyPath: raycastLayerMask.m_Bits
-      value: 1
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
@@ -1881,6 +1877,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 
@@ -2119,6 +2123,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
@@ -2265,6 +2273,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 
@@ -2457,6 +2473,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 
@@ -2897,6 +2921,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372980388, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Radius
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 316544152}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: EnemyManager
       value: 

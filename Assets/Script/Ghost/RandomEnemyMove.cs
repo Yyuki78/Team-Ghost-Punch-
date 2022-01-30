@@ -7,8 +7,7 @@ public class RandomEnemyMove : MonoBehaviour
     //　目的地
     private Vector3 destination;
     //　歩くスピード
-    [SerializeField]
-    private float walkSpeed = 1.0f;
+    public float walkSpeed = 1.5f;
     //　速度
     private Vector3 velocity;
     //　移動方向
@@ -23,6 +22,9 @@ public class RandomEnemyMove : MonoBehaviour
     //　経過時間
     private float elapsedTime;
 
+    //徘徊のレベル
+    private EnemyLevel _level;
+
     // Use this for initialization
     void Start()
     {
@@ -32,43 +34,68 @@ public class RandomEnemyMove : MonoBehaviour
         velocity = Vector3.zero;
         arrived = false;
         elapsedTime = 0f;
+        _level = GetComponent<EnemyLevel>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!arrived)
+        if (_level.level2 == true || _level.level3 == true)
         {
+            if (_level.level2 == true)
+            {
+                walkSpeed = 2.0f;
+                setPosition.distance = 4;
+            }else if (_level.level3 == true)
+            {
+                walkSpeed = 2.5f;
+                setPosition.distance = 6;
+            }
+            if (!arrived)
+            {
                 velocity = Vector3.zero;
                 direction = (destination - transform.position).normalized;
-                transform.LookAt(new Vector3(destination.x, transform.position.y, destination.z));
+                //transform.LookAt(new Vector3(destination.x, transform.position.y, destination.z));
                 velocity = direction * walkSpeed;
-                Debug.Log(destination);
-            
-            velocity.y += Physics.gravity.y * Time.deltaTime;
-            //enemyController.Move(velocity * Time.deltaTime);
-            transform.position += velocity * Time.deltaTime;
+                //Debug.Log(destination);
 
-            //　目的地に到着したかどうかの判定
-            if (Vector3.Distance(transform.position, destination) < 0.5f)
-            {
-                arrived = true;
+                velocity.y += Physics.gravity.y * Time.deltaTime;
+                //enemyController.Move(velocity * Time.deltaTime);
+                transform.position += velocity * Time.deltaTime;
+
+                /*
+                //　目的地に到着したかどうかの判定
+                if (Vector3.Distance(transform.position, destination) < 0.5f)
+                {
+                    arrived = true;
+                }*/
+                //　到着していたら
+
+                elapsedTime += Time.deltaTime;
+                if (elapsedTime > waitTime)
+                {
+                    arrived = true;
+                }
             }
-            //　到着していたら
-        }
-        else
-        {
-            elapsedTime += Time.deltaTime;
-
-            //　待ち時間を越えたら次の目的地を設定
-            if (elapsedTime > waitTime)
+            else
             {
+                //elapsedTime += Time.deltaTime;
                 setPosition.CreateRandomPosition();
                 destination = setPosition.GetDestination();
+                elapsedTime = 0;
                 arrived = false;
-                elapsedTime = 0f;
+                /*
+                //　待ち時間を越えたら次の目的地を設定
+                if (elapsedTime > waitTime)
+                {
+                    setPosition.CreateRandomPosition();
+                    destination = setPosition.GetDestination();
+                    arrived = false;
+                    elapsedTime = 0f;
+                }
+                //Debug.Log(elapsedTime);
+                */
             }
-            //Debug.Log(elapsedTime);
         }
     }
 }
