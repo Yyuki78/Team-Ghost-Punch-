@@ -38,6 +38,9 @@ public class EnemyLevel : MonoBehaviour
         if (_player.IsChargeMode == true)
         {
             ChargeTrue();
+        }else if (_player.IsDead == true)
+        {
+            PlayerGhostMode();
         }
         else
         {
@@ -64,6 +67,18 @@ public class EnemyLevel : MonoBehaviour
         //‚©‚È‚è‚Ì”ÍˆÍ‚©‚çEnemy‚ªŒŸ’m‚·‚é
         Charge = true;
         _collider.radius = 10.0f;
+        level2 = false;
+        level3 = false;
+    }
+
+    void PlayerGhostMode()
+    {
+        //Player‚ªGhostMode‚É‚È‚Á‚Ä‚¢‚éó‘Ô
+        //‚©‚È‚è‚Ì”ÍˆÍ‚©‚çEnemy‚ªŒŸ’m‚·‚é
+        Charge = true;
+        _collider.radius = 6.0f;
+        level2 = false;
+        level3 = false;
     }
 
     void Level1()
