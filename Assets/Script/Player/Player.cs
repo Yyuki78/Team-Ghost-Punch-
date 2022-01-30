@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     [SerializeField]
     float m_moveSpeed = 1.0f;
@@ -34,6 +35,9 @@ public class Player : MonoBehaviour {
     GameObject m_playerGhost = null;
     GameObject m_playerHuman = null;
 
+    //PlayerAttackに関するもの
+    PlayerAttack _attack;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,55 +47,82 @@ public class Player : MonoBehaviour {
         m_playerHuman = GameObject.FindGameObjectWithTag("Player");
         m_playerGhost = GameObject.FindGameObjectWithTag("PlayerGhost");
         m_audioSource = GetComponent<AudioSource>();
+        _attack = GetComponent<PlayerAttack>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         EnableMove = true;
         m_isChargeMode = false;
 
-        if(m_isGhostObject) {
+        if (m_isGhostObject)
+        {
             m_playerGhost.SetActive(false);
         }
     }
 
-	// Update is called once per frame
-	void Update()
+    // Update is called once per frame
+    void Update()
     {
         updateMove();
         updateCharge();
-        updateAttack();
+
+        //ゴーストの攻撃の処理
+        //攻撃中は動けない(まだ未実装)
+        //EnemyAttackを元にしたPlayerAttackを作成->ここではそれを呼ぶ処理のみ
+        //Animetionの部分は入れていない
+        //取り合えず右クリックで攻撃できるように
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Enemyに攻撃します1");
+            _attack.AttackIfPossible();
+        }
     }
 
-    void updateMove() {
-        if(EnableMove) {
+    void updateMove()
+    {
+        if (EnableMove)
+        {
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("Vertical");
             var input = new Vector3(x, 0, y);
             var velocity = input * m_moveSpeed;
 
             m_rigidbody.velocity = velocity;
-            if(m_spriteRenderer != null && input.magnitude > 0.2f) {
-                if(x > 0.0f) {
+            if (m_spriteRenderer != null && input.magnitude > 0.2f)
+            {
+                if (x > 0.0f)
+                {
                     m_spriteRenderer.flipX = true;
-                } else {
+                }
+                else
+                {
                     m_spriteRenderer.flipX = false;
                 }
                 m_animator.SetFloat("Walk", 1.0f);
-            } else {
+            }
+            else
+            {
                 m_animator.SetFloat("Walk", 0.0f);
             }
-        } else {
+        }
+        else
+        {
             m_rigidbody.velocity = Vector3.zero;
         }
     }
 
-    void updateCharge() {
+    void updateCharge()
+    {
         // プレイヤーのチャージ操作
-        if(m_isGhostObject == false && IsDead == false) {
+        if (m_isGhostObject == false && IsDead == false)
+        {
             var isCharging = Input.GetButton("Charge");
-            if(isCharging) {
+            if (isCharging)
+            {
 
-                if(m_audioSource.isPlaying == false) {
+                if (m_audioSource.isPlaying == false)
+                {
                     m_audioSource.Play();
                 }
 
@@ -100,33 +131,43 @@ public class Player : MonoBehaviour {
                 EnableMove = false;
                 m_isChargeMode = true;
 
-                if(m_chargePower < MaxChargePower) {
+                if (m_chargePower < MaxChargePower)
+                {
                     // 回復
                     m_chargePower += m_chargePowerAddSpeed * Time.deltaTime;
-                    if(m_chargePower > MaxChargePower) {
+                    if (m_chargePower > MaxChargePower)
+                    {
                         m_chargePower = MaxChargePower;
                     }
                 }
-            } else {
+            }
+            else
+            {
                 // チャージなし
                 m_animator.SetBool("Charge", false);
                 EnableMove = true;
                 m_isChargeMode = false;
 
-                if(m_audioSource.isPlaying) {
-                    m_audioSource.Stop() ;
+                if (m_audioSource.isPlaying)
+                {
+                    m_audioSource.Stop();
                 }
             }
 
-            if(m_chargePower >= MaxChargePower) {
+            if (m_chargePower >= MaxChargePower)
+            {
                 // チャージ最大
-                if(m_changingTimer < 0.0f) {
+                if (m_changingTimer < 0.0f)
+                {
                     // 返信ポーズ
                     m_animator.SetBool("SwitchGhost", true);
                     m_changingTimer = m_changingActionTime;
-                } else {
+                }
+                else
+                {
                     m_changingTimer -= Time.deltaTime;
-                    if(m_changingTimer < 0.0f) {
+                    if (m_changingTimer < 0.0f)
+                    {
                         // 変身ポーズ後、ゴースト化
                         m_animator.SetBool("SwitchGhost", false);
                         m_animator.SetBool("Charge", false);
@@ -139,9 +180,11 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void StartGhostMode() {
+    void StartGhostMode()
+    {
         // ゴーストモード開始
-        if(m_isGhostObject == false) {
+        if (m_isGhostObject == false)
+        {
             // にんげん側処理
             m_animator.SetBool("Dead", true);
             EnableMove = false;
@@ -154,22 +197,6 @@ public class Player : MonoBehaviour {
             var player = m_playerGhost.GetComponent<Player>();
             player.IsGhostMode = true;
             m_playerGhost.transform.position = transform.position;
-        }
-    }
-
-    void updateAttack() {
-        if(m_isGhostObject) {
-            if(Input.GetButtonDown("Fire1")) {
-                m_animator.SetTrigger("Attack");
-            }
-        }
-    }
-
-    void receiveDamage(int damage) {
-        if(m_isGhostObject == false && IsDead) {
-            // にんげんへのダメージ
-        } else {
-            // 死体へのダメージ
         }
     }
 }
