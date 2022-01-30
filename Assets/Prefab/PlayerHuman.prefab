@@ -470,6 +470,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveSpeed: 2
   m_isChargeMode: 0
+  m_isGhostObject: 0
+  m_chargePowerAddSpeed: 25
+  m_changingActionTime: 1
+  m_chargePower: 0
 --- !u!135 &8593288488034866974
 SphereCollider:
   m_ObjectHideFlags: 0
