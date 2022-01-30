@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     [SerializeField]
     float m_moveSpeed = 1.0f;
     [SerializeField]
     bool m_isChargeMode = false;
+    // チャージ中か
+    public bool IsChargeMode { set { m_isChargeMode = value; } get { return m_isChargeMode; } }
+
 
 
     Rigidbody m_rigidbody = null;
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponentInChildren<Animator>();
         m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         updateMove();
+        updateCharge();
     }
 
     void updateMove() {
@@ -41,6 +44,9 @@ public class Player : MonoBehaviour
             } else {
                 m_spriteRenderer.flipX = false;
             }
+            m_animator.SetFloat("Walk", 1.0f);
+        } else {
+            m_animator.SetFloat("Walk", 0.0f);
         }
     }
 
