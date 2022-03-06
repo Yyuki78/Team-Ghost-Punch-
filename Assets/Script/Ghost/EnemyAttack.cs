@@ -7,14 +7,16 @@ using UnityEngine;
 [RequireComponent(typeof(MobStatus))]
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private float attackCooldown = 0.5f; // 攻撃後のクールダウン（秒）
+    private float attackCooldown = 1.5f; // 攻撃後のクールダウン（秒）
     [SerializeField] private Collider attackCollider;
     public bool attckone = true;
     private MobStatus _status;
+    private ColorChange _colorChange;
 
     private void Start()
     {
         _status = GetComponent<MobStatus>();
+        _colorChange = GetComponentInChildren<ColorChange>();
     }
 
     /// <summary>
@@ -23,8 +25,9 @@ public class EnemyAttack : MonoBehaviour
     public void AttackIfPossible()
     {
         if (!_status.IsAttackable) return; // ステータスと衝突したオブジェクトで攻撃可否を判断
-
+        if (attckone == false) return;
         _status.GoToAttackStateIfPossible();
+        _colorChange.canSee();
         //追記
         StartCoroutine(AttackCoroutine());
     }

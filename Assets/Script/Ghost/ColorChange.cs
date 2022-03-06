@@ -34,21 +34,33 @@ public class ColorChange : MonoBehaviour
         }
     }
 
-    IEnumerator Transparent()
+    public IEnumerator Transparent()
     {
         for (int i = 0; i < 255; i++)
         {
+            if(sprite.material.color.a <= 0) yield break;
             sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 1);
             yield return new WaitForSeconds(0.01f);
         }
+        yield break;
     }
 
-    IEnumerator Transparent2()
+    public IEnumerator Transparent2()
     {
         for (int i = 0; i < 255; i++)
         {
             sprite.material.color = sprite.material.color + new Color32(0, 0, 0, 1);
             yield return new WaitForSeconds(0.01f);
+        }
+        yield break;
+    }
+
+    public void canSee()
+    {
+        if (sprite.material.color.a <= 1)
+        {
+            once = false;
+            sprite.material.color = new Color32(255, 255, 255, 200);
         }
     }
 }

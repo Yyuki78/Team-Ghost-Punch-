@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public bool EnableMove { private set; get; } = false;
     public bool IsDead { private set; get; } = false;
     public bool IsGhostMode { private set; get; } = false;
+    public bool IsDirection = false;//プレイヤーの向き Trueなら右向き
 
     [SerializeField]
     float m_chargePower = 0;
@@ -74,8 +75,12 @@ public class Player : MonoBehaviour
         //取り合えず右クリックで攻撃できるように
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Enemyに攻撃します1");
-            _attack.AttackIfPossible();
+            if (_attack.attackcol == true)
+            {
+                Debug.Log("Enemyに攻撃します1");
+                _attack.AttackIfPossible();
+                 m_animator.SetTrigger("Attack"); ;
+            }
         }
     }
 
@@ -93,10 +98,12 @@ public class Player : MonoBehaviour
             {
                 if (x > 0.0f)
                 {
+                    IsDirection = true;
                     m_spriteRenderer.flipX = true;
                 }
                 else
                 {
+                    IsDirection = false;
                     m_spriteRenderer.flipX = false;
                 }
                 m_animator.SetFloat("Walk", 1.0f);

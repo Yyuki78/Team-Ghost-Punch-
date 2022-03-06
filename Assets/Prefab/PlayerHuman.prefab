@@ -520,6 +520,7 @@ MonoBehaviour:
   m_isGhostObject: 0
   m_chargePowerAddSpeed: 25
   m_changingActionTime: 1
+  IsDirection: 0
   m_chargePower: 0
 --- !u!135 &8593288488034866974
 SphereCollider:
@@ -659,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.5
-  attackCollider: {fileID: 113105491}
+  attackColliderRight: {fileID: 0}
+  attackColliderLeft: {fileID: 0}
   attackone: 1
   attackcol: 1

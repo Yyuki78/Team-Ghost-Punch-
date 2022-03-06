@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1854268128}
   - component: {fileID: 1854268129}
   m_Layer: 7
-  m_Name: AttackHitDetector
+  m_Name: AttackHitDetectorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.3}
+  m_Center: {x: 0.7, y: 0, z: 0}
 --- !u!114 &1854268129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,85 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 281923214}
+      - m_Target: {fileID: 5098312506294972773}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: OnHitAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &5267944474949401698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6268557501352963487}
+  - component: {fileID: 4626849993916796870}
+  - component: {fileID: 660025102155500026}
+  m_Layer: 7
+  m_Name: AttackHitDetectorLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6268557501352963487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267944474949401698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4313586312269855155}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4626849993916796870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267944474949401698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.3}
+  m_Center: {x: -0.3, y: 0, z: 0}
+--- !u!114 &660025102155500026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267944474949401698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318af725125b100419af5ae00a227dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5098312506294972773}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: OnHitAttack
         m_Mode: 0
@@ -85,6 +163,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113105490, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 113105491, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 113105491, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 113105492, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 316544158, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: attackColliderLeft
+      value: 
+      objectReference: {fileID: 4626849993916796870}
+    - target: {fileID: 316544158, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: attackColliderRight
+      value: 
+      objectReference: {fileID: 1854268128}
     - target: {fileID: 1133470420, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -113,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b8962835f5d2b478c87d03da9db8799f, type: 2}
+    - target: {fileID: 8593288488034866974, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9015141936160901785, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -127,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -135,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -15.299999
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -143,15 +249,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -179,11 +285,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
---- !u!1 &4313586312269855154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9015141937689025609, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
-  m_PrefabInstance: {fileID: 5098312506527098363}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4313586312269855155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
@@ -194,19 +295,14 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 6020393696585707732, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
   m_PrefabInstance: {fileID: 5098312506527098363}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281923214
+--- !u!114 &5098312506294972773 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 316544158, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+  m_PrefabInstance: {fileID: 5098312506527098363}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4313586312269855154}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb2a6ebd9156f204ba567b75727912bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0.5
-  attackCollider: {fileID: 1854268128}
-  attackone: 1
-  attackcol: 1

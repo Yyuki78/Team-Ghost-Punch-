@@ -6,14 +6,17 @@ using UnityEngine;
 /// </summary>
 public class PlayerAttack : MonoBehaviour
 {
+    Player _player;
+
     [SerializeField] private float attackCooldown = 0.5f; // 攻撃後のクールダウン（秒）
-    [SerializeField] private Collider attackCollider;
+    [SerializeField] private Collider attackColliderRight;
+    [SerializeField] private Collider attackColliderLeft;
     public bool attackone = true;
     public bool attackcol = true;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        _player = GetComponent<Player>();
     }
     /// <summary>
     /// 攻撃可能な状態であれば攻撃を行います。
@@ -63,10 +66,18 @@ public class PlayerAttack : MonoBehaviour
     {
         if (attackone == false) yield break;
         attackone = false;
-        yield return new WaitForSeconds(0.1f);
-        attackCollider.enabled = true;
-        yield return new WaitForSeconds(0.3f);
-        attackCollider.enabled = false;
+        yield return new WaitForSeconds(0.01f);
+        if (_player.IsDirection == true)
+        {
+            attackColliderRight.enabled = true;
+        }
+        else
+        {
+            attackColliderLeft.enabled = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+        attackColliderRight.enabled = false;
+        attackColliderLeft.enabled = false;
         StartCoroutine(CooldownCoroutine());
         yield break;
     }
