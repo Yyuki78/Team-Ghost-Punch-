@@ -10,12 +10,15 @@ public class ColorChange : MonoBehaviour
     [SerializeField] GameObject Player;
     private Player _player;
 
+    [SerializeField] GameObject StageEffect;
+    private ThunderEffect _thunder;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 0);
         _player = Player.GetComponent<Player>();
+        _thunder = StageEffect.GetComponent<ThunderEffect>();
     }
     void Update()
     {
@@ -31,6 +34,10 @@ public class ColorChange : MonoBehaviour
             StopCoroutine("Trasparent");
             StartCoroutine("Transparent2");
             once = false;
+        }
+        if (_thunder.canSee == true)
+        {
+            canSee();
         }
     }
 
@@ -59,8 +66,8 @@ public class ColorChange : MonoBehaviour
     {
         if (sprite.material.color.a <= 1)
         {
-            once = false;
             sprite.material.color = new Color32(255, 255, 255, 200);
+            StartCoroutine("Transparent");
         }
     }
 }
