@@ -31,7 +31,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (_level.Charge==false)
         {
-            mask = LayerMask.GetMask(new string[] { LayerName2 });
+            mask = LayerMask.GetMask(new string[] { LayerName1 });
             raycastLayerMask = mask;
         }
         else

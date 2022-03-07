@@ -26,8 +26,7 @@ public class Player : MonoBehaviour
     public bool IsGhostMode { private set; get; } = false;
     public bool IsDirection = false;//プレイヤーの向き Trueなら右向き
 
-    [SerializeField]
-    float m_chargePower = 0;
+    public float m_chargePower = 0;
     float m_changingTimer = -1.0f;
 
     Rigidbody m_rigidbody = null;

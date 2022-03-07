@@ -66,8 +66,12 @@ public class ColorChange : MonoBehaviour
     {
         if (sprite.material.color.a <= 1)
         {
-            sprite.material.color = new Color32(255, 255, 255, 200);
-            StartCoroutine("Transparent");
+            sprite.material.color = new Color32(255, 255, 255, 255);
+            if (_player.IsDead == false)
+            {
+                StopCoroutine("Transparent");
+                StartCoroutine("Transparent");
+            }
         }
     }
 }

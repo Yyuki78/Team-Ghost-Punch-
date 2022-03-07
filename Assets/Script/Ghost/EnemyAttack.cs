@@ -38,7 +38,10 @@ public class EnemyAttack : MonoBehaviour
     /// <param name="collider"></param>
     public void OnAttackRangeEnter(Collider collider)
     {
-        AttackIfPossible();
+        if (collider.CompareTag("Player") || collider.CompareTag("PlayerGhost"))
+        {
+            AttackIfPossible();
+        }
     }
 
     /*
