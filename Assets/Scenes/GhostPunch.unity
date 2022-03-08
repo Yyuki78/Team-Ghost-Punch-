@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029986307, g: 0.04351127, b: 0.08638334, a: 1}
+  m_IndirectSpecularColor: {r: 0.029913053, g: 0.043373495, b: 0.08604479, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1539,8 +1539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -24}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: 60, y: -27}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177731166
 MonoBehaviour:
@@ -2883,6 +2883,65 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 05602705e7b314a228cc19a14d61f44d, type: 3}
+--- !u!1 &325877881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325877882}
+  - component: {fileID: 325877883}
+  - component: {fileID: 325877884}
+  m_Layer: 5
+  m_Name: LifeGaugeContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &325877882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325877881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2088500055}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &325877883
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325877881}
+  m_CullTransparentMesh: 1
+--- !u!114 &325877884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325877881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35365d441791ce74a9fc38ae0b3da19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1727203898}
+  lifeGaugePrefab: {fileID: 4303895046856860619, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
 --- !u!1 &334067446
 GameObject:
   m_ObjectHideFlags: 0
@@ -15993,6 +16052,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -16858,6 +16925,11 @@ PrefabInstance:
 --- !u!1 &1727203894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4811656536574360898, guid: ccd9f4770d602401c8d486c3254c586e, type: 3}
+  m_PrefabInstance: {fileID: 4811656535153326674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1727203898 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4811656536574360896, guid: ccd9f4770d602401c8d486c3254c586e, type: 3}
   m_PrefabInstance: {fileID: 4811656535153326674}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1727203899 stripped
@@ -18226,6 +18298,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -19151,6 +19231,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -19341,6 +19429,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -20336,6 +20432,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
@@ -20398,6 +20502,106 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+--- !u!1 &2088500051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088500055}
+  - component: {fileID: 2088500054}
+  - component: {fileID: 2088500053}
+  - component: {fileID: 2088500052}
+  m_Layer: 5
+  m_Name: LifeGaugeCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2088500052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088500051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2088500053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088500051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &2088500054
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088500051}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -1
+  m_TargetDisplay: 0
+--- !u!224 &2088500055
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088500051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 325877882}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!4 &2092685651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9752670f251a2438faf37c874d5c7cbd, type: 3}
@@ -25288,6 +25492,14 @@ PrefabInstance:
       propertyPath: lifeMax
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: FillImage
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
+    - target: {fileID: 1950288186, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: LifeGauge
+      value: 
+      objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
