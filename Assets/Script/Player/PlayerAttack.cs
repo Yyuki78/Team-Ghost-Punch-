@@ -17,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
     void Awake()
     {
         _player = GetComponent<Player>();
+        attackColliderRight.enabled = false;
+        attackColliderLeft.enabled = false;
     }
     /// <summary>
     /// UŒ‚‰Â”\‚Èó‘Ô‚Å‚ ‚ê‚ÎUŒ‚‚ğs‚¢‚Ü‚·B
@@ -39,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     /// <param name="collider"></param>
     public void OnAttackRangeEnter(Collider collider)
     {
-        AttackIfPossible();
+        //AttackIfPossible();
     }
     /// <summary>
      /// attackCollider‚ªUŒ‚‘ÎÛ‚ÉHit‚µ‚½‚ÉŒÄ‚Î‚ê‚Ü‚·B
