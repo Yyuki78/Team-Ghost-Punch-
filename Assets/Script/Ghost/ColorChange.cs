@@ -29,9 +29,15 @@ public class ColorChange : MonoBehaviour
             StopCoroutine("Trasparent2");
 
         }
+        if (_player.IsChargeMode == true && once == true)
+        {
+            StopCoroutine("Trasparent2");
+            StartCoroutine("Transparent2");
+            once = false;
+        }
         if (_player.IsDead == true && once == true)
         {
-            StopCoroutine("Trasparent");
+            StopCoroutine("Trasparent2");
             StartCoroutine("Transparent2");
             once = false;
         }
@@ -67,7 +73,7 @@ public class ColorChange : MonoBehaviour
         if (sprite.material.color.a <= 1)
         {
             sprite.material.color = new Color32(255, 255, 255, 255);
-            if (_player.IsDead == false)
+            if (_player.IsDead == false && _player.IsChargeMode == false)
             {
                 StopCoroutine("Transparent");
                 StartCoroutine("Transparent");

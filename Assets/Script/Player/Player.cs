@@ -123,7 +123,9 @@ public class Player : MonoBehaviour
         // プレイヤーのチャージ操作
         if (m_isGhostObject == false && IsDead == false)
         {
-            var isCharging = Input.GetButton("Charge");
+            //仕様変更　クリックではなく、特定のエリアに入ることでチャージ
+            //var isCharging = Input.GetButton("Charge");
+            var isCharging = PlayerCharge.IsCharging;
             if (isCharging)
             {
 
@@ -134,7 +136,7 @@ public class Player : MonoBehaviour
 
                 // チャージ中
                 m_animator.SetBool("Charge", true);
-                EnableMove = false;
+                //EnableMove = false;
                 m_isChargeMode = true;
 
                 if (m_chargePower < MaxChargePower)
