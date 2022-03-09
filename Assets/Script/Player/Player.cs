@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     //PlayerAttackに関するもの
     PlayerAttack _attack;
 
+    //これがTrueでGhostへ変身する
+    private bool ChangeGhost = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -161,27 +164,38 @@ public class Player : MonoBehaviour
                     m_audioSource.Stop();
                 }
             }
-
             if (m_chargePower >= MaxChargePower)
             {
-                // チャージ最大
-                if (m_changingTimer < 0.0f)
+                if (m_audioSource.isPlaying)
                 {
-                    // 返信ポーズ
-                    m_animator.SetBool("SwitchGhost", true);
-                    m_changingTimer = m_changingActionTime;
+                    m_audioSource.Stop();
                 }
-                else
+                if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0) || Input.GetButton("Charge"))
                 {
-                    m_changingTimer -= Time.deltaTime;
+                    ChangeGhost = true;
+                }
+                if (ChangeGhost == true)
+                {
+                    EnableMove = false;
+                    // チャージ最大
                     if (m_changingTimer < 0.0f)
                     {
-                        // 変身ポーズ後、ゴースト化
-                        m_animator.SetBool("SwitchGhost", false);
-                        m_animator.SetBool("Charge", false);
+                        // 返信ポーズ
+                        m_animator.SetBool("SwitchGhost", true);
+                        m_changingTimer = m_changingActionTime;
+                    }
+                    else
+                    {
+                        m_changingTimer -= Time.deltaTime;
+                        if (m_changingTimer < 0.0f)
+                        {
+                            // 変身ポーズ後、ゴースト化
+                            m_animator.SetBool("SwitchGhost", false);
+                            m_animator.SetBool("Charge", false);
 
-                        StartGhostMode();
-                        m_changingTimer = -1.0f;
+                            StartGhostMode();
+                            m_changingTimer = -1.0f;
+                        }
                     }
                 }
             }
