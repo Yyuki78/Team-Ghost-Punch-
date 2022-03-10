@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
     //これがTrueでGhostへ変身する
     private bool ChangeGhost = false;
 
+    //PlayerのHP
+    [SerializeField] private int Life = 10;
+    public float _life => Life;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -124,7 +128,7 @@ public class Player : MonoBehaviour
     void updateCharge()
     {
         // プレイヤーのチャージ操作
-        if (m_isGhostObject == false && IsDead == false)
+        if (/*m_isGhostObject == false &&*/ IsDead == false)
         {
             //仕様変更　クリックではなく、特定のエリアに入ることでチャージ
             //var isCharging = Input.GetButton("Charge");
@@ -193,6 +197,7 @@ public class Player : MonoBehaviour
                             m_animator.SetBool("SwitchGhost", false);
                             m_animator.SetBool("Charge", false);
 
+                            StartCoroutine("ReduceChargeGauge");
                             StartGhostMode();
                             m_changingTimer = -1.0f;
                         }
@@ -219,6 +224,30 @@ public class Player : MonoBehaviour
             var player = m_playerGhost.GetComponent<Player>();
             player.IsGhostMode = true;
             m_playerGhost.transform.position = transform.position;
+
+
         }
+    }
+
+    private IEnumerator ReduceChargeGauge()
+    {
+        yield return new WaitForSeconds(1f);
+        while (m_chargePower > 0)
+        {
+            m_chargePower--;
+            yield return new WaitForSeconds(0.2f);
+        }
+        yield break;
+    }
+
+    //体への攻撃か幽体への攻撃かで分ける
+    public void DamageBody()
+    {
+        Life--;
+    }
+
+    public void DamageGhost()
+    {
+        m_chargePower -= 10;
     }
 }

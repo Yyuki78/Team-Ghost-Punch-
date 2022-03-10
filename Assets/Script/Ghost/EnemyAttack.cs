@@ -13,10 +13,14 @@ public class EnemyAttack : MonoBehaviour
     private MobStatus _status;
     private ColorChange _colorChange;
 
+    [SerializeField] GameObject player;
+    Player _player;
+
     private void Start()
     {
         _status = GetComponent<MobStatus>();
         _colorChange = GetComponentInChildren<ColorChange>();
+        _player = player.GetComponent<Player>();
     }
 
     /// <summary>
@@ -64,7 +68,14 @@ public class EnemyAttack : MonoBehaviour
 
         // プレイヤーにダメージを与える
         Debug.Log("攻撃します");
-        //targetMob.Damage(1);
+        if (collider.CompareTag("Player"))
+        {
+            _player.DamageBody();
+        }
+        else if (collider.CompareTag("PlayerGhost"))
+        {
+            _player.DamageGhost();
+        }
     }
 
     /*
