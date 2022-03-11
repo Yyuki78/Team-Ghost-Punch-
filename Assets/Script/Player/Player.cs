@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     public float m_chargePower = 0;
     float m_changingTimer = -1.0f;
+    float m_changingTimer2 = -1.0f;
 
     Rigidbody m_rigidbody = null;
     Animator m_animator = null;
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
     void updateCharge()
     {
         // プレイヤーのチャージ操作
-        if (/*m_isGhostObject == false &&*/ IsDead == false)
+        if (m_isGhostObject == false && IsDead == false)
         {
             //仕様変更　クリックではなく、特定のエリアに入ることでチャージ
             //var isCharging = Input.GetButton("Charge");
@@ -205,6 +206,33 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        //幽体から人間へ戻る
+        if(m_isGhostObject == false && IsDead == true)
+        {
+            if(m_chargePower <= 0)
+            {
+                // チャージが0になった
+                if (m_changingTimer2 < 0.0f)
+                {
+                    // 変身ポーズ
+                    //m_animator.SetBool("SwitchGhost", true);
+                    m_changingTimer2 = m_changingActionTime;
+                }
+                else
+                {
+                    m_changingTimer2 -= Time.deltaTime;
+                    if (m_changingTimer2 < 0.0f)
+                    {
+                        // 変身ポーズ後、ゴースト化
+                        //m_animator.SetBool("SwitchGhost", false);
+                        //m_animator.SetBool("Charge", false);
+                        
+                        StartBodyMode();
+                        m_changingTimer2 = -1.0f;
+                    }
+                }
+            }
+        }
     }
 
     void StartGhostMode()
@@ -225,7 +253,7 @@ public class Player : MonoBehaviour
             player.IsGhostMode = true;
             m_playerGhost.transform.position = transform.position;
 
-
+            _attack.attackcol = true;
         }
     }
 
@@ -238,6 +266,24 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         yield break;
+    }
+
+    private void StartBodyMode()
+    {
+        StopCoroutine("ReduceChargeGauge");
+        ChangeGhost = false;
+        // ゴースト側処理
+        _attack.attackcol = true;
+        //var ghostAnimator = m_playerGhost.GetComponentInChildren<Animator>();
+        //ghostAnimator.SetBool("Ghost", false);
+        //var player = m_playerGhost.GetComponent<Player>();
+        //m_playerGhost.transform.position = transform.position;
+        m_playerGhost.SetActive(false);
+
+        // にんげん側処理
+        m_animator.SetBool("Dead", false);
+        EnableMove = true;
+        IsDead = false;
     }
 
     //体への攻撃か幽体への攻撃かで分ける

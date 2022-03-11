@@ -8845,7 +8845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9891,6 +9891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972203181}
+  - component: {fileID: 972203182}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -9927,6 +9928,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &972203182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972203180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f02addf432ca674aa8ce99d36569879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP1: {fileID: 385467280}
+  HP2: {fileID: 1286021773}
+  HP3: {fileID: 805800811}
+  HP4: {fileID: 1756321510}
+  HP5: {fileID: 1568254361}
+  HP6: {fileID: 531537090}
+  HP7: {fileID: 391810744}
+  HP8: {fileID: 1458087681}
+  HP9: {fileID: 1817694672}
+  HP10: {fileID: 421436045}
+  Player: {fileID: 316544152}
 --- !u!1 &975424080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 09e6cfb9eb2734e06bd82e4b9e6a27e6, type: 3}
