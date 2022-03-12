@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RandomEnemyMove : MonoBehaviour
 {
     //　目的地
     private Vector3 destination;
     //　歩くスピード
-    public float walkSpeed = 1.5f;
+    private NavMeshAgent _agent;
     //　速度
     private Vector3 velocity;
     //　移動方向
@@ -35,6 +36,7 @@ public class RandomEnemyMove : MonoBehaviour
         arrived = false;
         elapsedTime = 0f;
         _level = GetComponent<EnemyLevel>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -44,11 +46,9 @@ public class RandomEnemyMove : MonoBehaviour
         {
             if (_level.level2 == true)
             {
-                walkSpeed = 2.0f;
                 setPosition.distance = 4;
             }else if (_level.level3 == true)
             {
-                walkSpeed = 2.5f;
                 setPosition.distance = 6;
             }
             if (!arrived)
@@ -56,7 +56,7 @@ public class RandomEnemyMove : MonoBehaviour
                 velocity = Vector3.zero;
                 direction = (destination - transform.position).normalized;
                 //transform.LookAt(new Vector3(destination.x, transform.position.y, destination.z));
-                velocity = direction * walkSpeed;
+                velocity = direction * _agent.speed;
                 //Debug.Log(destination);
 
                 velocity.y += Physics.gravity.y * Time.deltaTime;

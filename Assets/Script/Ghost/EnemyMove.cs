@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     private int mask;
 
     private EnemyLevel _level;
-    public bool RanWalk = false;//œpœjo—ˆ‚é‚©‚Ç‚¤‚©‚ğEnemyLevel‚Éó‚¯“n‚·
+    public bool RanWalk = true;//œpœjo—ˆ‚é‚©‚Ç‚¤‚©‚ğEnemyLevel‚Éó‚¯“n‚·
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];

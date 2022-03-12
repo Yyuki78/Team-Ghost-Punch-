@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         m_playerHuman = GameObject.FindGameObjectWithTag("Player");
         m_playerGhost = GameObject.FindGameObjectWithTag("PlayerGhost");
         m_audioSource = GetComponent<AudioSource>();
-        _attack = GetComponent<PlayerAttack>();
+        _attack = m_playerGhost.GetComponent<PlayerAttack>();
     }
 
     private void Start()
@@ -82,11 +82,11 @@ public class Player : MonoBehaviour
         //取り合えず右クリックで攻撃できるように
         if (Input.GetMouseButtonDown(1))
         {
-            if (_attack.attackcol == true)
+            if (_attack.attackcol == true && m_isGhostObject == true)
             {
                 Debug.Log("Enemyに攻撃します1");
                 _attack.AttackIfPossible();
-                 m_animator.SetTrigger("Attack"); ;
+                m_animator.SetTrigger("Attack");
             }
         }
     }

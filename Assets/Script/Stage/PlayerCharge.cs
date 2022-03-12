@@ -7,18 +7,20 @@ public class PlayerCharge : MonoBehaviour
     //Mirror‚ÌCollider‚É‚Â‚¯‚ÄAIsCharging‚ðØ‚è‘Ö‚¦‚é
     public static bool IsCharging = false;
 
-    [SerializeField] GameObject Area;
-    private int MaxChargeTime = 2;
+    //MirrorManager‚ÅŽg—p
+    public bool FinishArea = false;
+    public bool ChargeTime = false;
 
     public void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player"))
         {
-            if (MaxChargeTime > 0)
-            {
+            //if (MaxChargeTime > 0)
+            //{
                 IsCharging = true;
-                MaxChargeTime--;
-            }
+                ChargeTime = true;
+                //MaxChargeTime--;
+            //}
         }
     }
 
@@ -27,9 +29,10 @@ public class PlayerCharge : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             IsCharging = false;
-            if (MaxChargeTime <= 0)
+            ChargeTime = false;
+            if (FinishArea ==true)
             {
-                Area.SetActive(false);
+                this.gameObject.SetActive(false);
             }
         }
     }
