@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(MobStatus))]
 public class EnemyAttack : MonoBehaviour
 {
-    private float attackCooldown = 1.5f; // 攻撃後のクールダウン（秒）
+    public float attackCooldown = 1.5f; // 攻撃後のクールダウン（秒）
     [SerializeField] private Collider attackCollider;
     public bool attckone = true;
     private MobStatus _status;

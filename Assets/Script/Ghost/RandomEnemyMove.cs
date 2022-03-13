@@ -50,6 +50,7 @@ public class RandomEnemyMove : MonoBehaviour
     {
         if (!_status.IsRunnable) return;
         if (!_move.RanWalk) return;
+        if (_move.thunder) return;
         if (_level.level2 == true || _level.level3 == true)
         {
             if (_level.level2 == true)

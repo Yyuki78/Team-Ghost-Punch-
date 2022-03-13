@@ -11,6 +11,7 @@ public class EnemyLevel : MonoBehaviour
     private SphereCollider _collider;
     private EnemyMove _move;
     private EnemyStatus _status;
+    private EnemyAttack _attack;
     [SerializeField] GameObject Player;
     private Player _player;
     public bool Charge = false; //Charge中かどうか
@@ -25,13 +26,9 @@ public class EnemyLevel : MonoBehaviour
         _collider = CollisionDetector.GetComponent<SphereCollider>();
         _move = GetComponent<EnemyMove>();
         _status = GetComponent<EnemyStatus>();
+        _attack = GetComponent<EnemyAttack>();
         _agent = GetComponent<NavMeshAgent>();
         _player = Player.GetComponent<Player>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -113,6 +110,18 @@ public class EnemyLevel : MonoBehaviour
         //GhostがPlayerを追っている状態
         //特にこちら側ですることはない
         Charge = true;
+        if (_manager.IsLevel1)
+        {
+            _collider.radius = 4.0f;
+        }
+        else if (_manager.IsLevel2)
+        {
+            _collider.radius = 6.0f;
+        }
+        else
+        {
+            _collider.radius = 8.0f;
+        }
     }
 
     void Level1()
@@ -137,6 +146,8 @@ public class EnemyLevel : MonoBehaviour
         }
         //Playerへのゲージダメージは10
         _player.GaugeDamage = 10;
+        //攻撃のクールダウンは1.5f
+        _attack.attackCooldown = 1.5f;
     }
 
     void Level2()
@@ -147,7 +158,7 @@ public class EnemyLevel : MonoBehaviour
         //追いかける速度は人より少し遅いくらい-- > 2 ?
         //検知範囲は5
         _agent.speed = 2.0f;
-        _collider.radius = 5.0f;
+        _collider.radius = 6.0f;
         //NormalStateの時は徘徊する(Level2はのんびり行う)
         if (_move.RanWalk == true)
         {
@@ -161,6 +172,8 @@ public class EnemyLevel : MonoBehaviour
         }
         //Playerへのゲージダメージは15
         _player.GaugeDamage = 15;
+        //攻撃のクールダウンは1.5f
+        _attack.attackCooldown = 1.5f;
     }
 
     void Level3()
@@ -169,8 +182,8 @@ public class EnemyLevel : MonoBehaviour
         //ユーレイは部屋の中を普通に歩き回る
         //追いかける速度は人よりほんの僅かに遅い程度--> 2.5 ?
         //検知範囲は6
-        _agent.speed = 2.5f;
-        _collider.radius = 6.0f;
+        _agent.speed = 2.2f;
+        _collider.radius = 8.0f;
         //NormalStateの時は徘徊する(Level3は普通に動き回る)
         if (_move.RanWalk == true)
         {
@@ -184,5 +197,7 @@ public class EnemyLevel : MonoBehaviour
         }
         //Playerへのゲージダメージは20
         _player.GaugeDamage = 20;
+        //攻撃のクールダウンは1.0f
+        _attack.attackCooldown = 1.0f;
     }
 }

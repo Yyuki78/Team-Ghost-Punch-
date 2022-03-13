@@ -19,12 +19,18 @@ public class EnemyMove : MonoBehaviour
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
 
+    //雷で少しの間停止する用
+    [SerializeField] GameObject StageEffect;
+    private ThunderEffect _thunder;
+    public bool thunder = false;//RandomEnemyMoveで止める用
+
     public void Start()
     {
         mask = LayerMask.GetMask(new string[] { LayerName1 });
         _level = GetComponent<EnemyLevel>();
         _agent = GetComponent<NavMeshAgent>(); // NavMeshAgentを保持しておく
         _status = GetComponent<EnemyStatus>();
+        _thunder = StageEffect.GetComponent<ThunderEffect>();
     }
 
     public void Update()
@@ -33,6 +39,10 @@ public class EnemyMove : MonoBehaviour
         {
             mask = LayerMask.GetMask(new string[] { LayerName1 });
             raycastLayerMask = mask;
+            if (!_status.IsMovable || thunder == true)
+            {
+                RanWalk = true;
+            }
         }
         else
         {
@@ -40,12 +50,22 @@ public class EnemyMove : MonoBehaviour
             mask = LayerMask.GetMask(new string[] { LayerName2 });
             raycastLayerMask = mask;
         }
+        if (_thunder.canSee == true)
+        {
+            StartCoroutine("StopMoving");
+        }
     }
 
     // CollisionDetectorのonTriggerStayにセットし、衝突判定を受け取るメソッド
     public void OnDetectObject(Collider collider)
     {
         if (!_status.IsMovable)
+        {
+            _agent.isStopped = true;
+            return;
+        }
+
+        if (thunder == true)
         {
             _agent.isStopped = true;
             return;
@@ -98,5 +118,15 @@ public class EnemyMove : MonoBehaviour
             _status.GoToNormalStateIfPossible();
             RanWalk = true;
         }
+    }
+
+    private IEnumerator StopMoving()
+    {
+        thunder = true;
+        _agent.isStopped = true;
+        yield return new WaitForSeconds(1f);
+        _agent.isStopped = false;
+        thunder = false;
+        yield break;
     }
 }

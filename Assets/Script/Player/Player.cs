@@ -256,6 +256,7 @@ public class Player : MonoBehaviour
             m_playerGhost.transform.position = transform.position;
 
             _attack.attackcol = true;
+            _attack.attackone = true;
         }
     }
 
@@ -276,6 +277,7 @@ public class Player : MonoBehaviour
         ChangeGhost = false;
         // ゴースト側処理
         _attack.attackcol = true;
+        _attack.attackone = true;
         //var ghostAnimator = m_playerGhost.GetComponentInChildren<Animator>();
         //ghostAnimator.SetBool("Ghost", false);
         //var player = m_playerGhost.GetComponent<Player>();
