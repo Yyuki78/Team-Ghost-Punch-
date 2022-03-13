@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1912004370}
   - component: {fileID: 1912004371}
   - component: {fileID: 1912004372}
+  - component: {fileID: 5841786588371165136}
   m_Layer: 10
   m_Name: GhostEnemy
   m_TagString: EnemyGhost
@@ -304,7 +305,7 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  RanWalk: 0
+  RanWalk: 1
 --- !u!114 &1950288186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ada8010247b749499db396a6bc72af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeMax: 5
+  lifeMax: 6
 --- !u!195 &1950288187
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -382,9 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095124624972be0469beb39052116122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
   attackCollider: {fileID: 1396189783}
   attckone: 1
+  player: {fileID: 0}
 --- !u!136 &1912004370
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -424,8 +425,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f87a90e52d5c94c8ab4f1512e7b787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 1.5
   waitTime: 3
+--- !u!54 &5841786588371165136
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952925299402192285}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &5952925300519115719
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  StageEffect: {fileID: 0}
 --- !u!95 &1232723351379787889
 Animator:
   serializedVersion: 3

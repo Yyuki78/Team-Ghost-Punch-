@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     //PlayerのHP
     [SerializeField] private int Life = 10;
     public float _life => Life;
+    //敵からくらうゲージダメージ(EnemyLevelで変える)
+    public int GaugeDamage = 10;
 
     // Start is called before the first frame update
     void Awake()
@@ -294,6 +296,6 @@ public class Player : MonoBehaviour
 
     public void DamageGhost()
     {
-        m_chargePower -= 10;
+        m_chargePower -= GaugeDamage;
     }
 }

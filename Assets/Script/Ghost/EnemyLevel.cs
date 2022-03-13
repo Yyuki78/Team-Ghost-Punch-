@@ -10,6 +10,7 @@ public class EnemyLevel : MonoBehaviour
     [SerializeField] GameObject CollisionDetector;
     private SphereCollider _collider;
     private EnemyMove _move;
+    private EnemyStatus _status;
     [SerializeField] GameObject Player;
     private Player _player;
     public bool Charge = false; //Charge中かどうか
@@ -23,6 +24,7 @@ public class EnemyLevel : MonoBehaviour
         _manager = EnemyManager.GetComponent<EnemyManager>();
         _collider = CollisionDetector.GetComponent<SphereCollider>();
         _move = GetComponent<EnemyMove>();
+        _status = GetComponent<EnemyStatus>();
         _agent = GetComponent<NavMeshAgent>();
         _player = Player.GetComponent<Player>();
     }
@@ -41,6 +43,9 @@ public class EnemyLevel : MonoBehaviour
         }else if (_player.IsDead == true)
         {
             PlayerGhostMode();
+        }else if (_status.IsRunState)
+        {
+            RunMode();
         }
         else
         {
@@ -66,9 +71,20 @@ public class EnemyLevel : MonoBehaviour
         //Playerがチャージしている状態
         //かなりの範囲からEnemyが検知する
         Charge = true;
-        _collider.radius = 10.0f;
-        level2 = false;
-        level3 = false;
+        if (_manager.IsLevel1)
+        {
+            _collider.radius = 10.0f;
+        }
+        else if (_manager.IsLevel2)
+        {
+            _collider.radius = 12.0f;
+        }
+        else
+        {
+            _collider.radius = 14.0f;
+        }
+        //level2 = false;
+        //level3 = false;
     }
 
     void PlayerGhostMode()
@@ -76,9 +92,27 @@ public class EnemyLevel : MonoBehaviour
         //PlayerがGhostModeになっている状態
         //かなりの範囲からEnemyが検知する
         Charge = true;
-        _collider.radius = 6.0f;
-        level2 = false;
-        level3 = false;
+        if (_manager.IsLevel1)
+        {
+            _collider.radius = 6.0f;
+        }
+        else if (_manager.IsLevel2)
+        {
+            _collider.radius = 8.0f;
+        }
+        else
+        {
+            _collider.radius = 10.0f;
+        }
+        //level2 = false;
+        //level3 = false;
+    }
+
+    void RunMode()
+    {
+        //GhostがPlayerを追っている状態
+        //特にこちら側ですることはない
+        Charge = true;
     }
 
     void Level1()
@@ -90,7 +124,7 @@ public class EnemyLevel : MonoBehaviour
         Debug.Log("EnemyLevel1");
         _agent.speed = 1.5f;
         _collider.radius = 4.0f;
-        //NormalStateの時は徘徊する(Level1はしない)
+        //NormalStateの時は徘徊する
         if (_move.RanWalk == true)
         {
             level2 = true;
@@ -101,6 +135,8 @@ public class EnemyLevel : MonoBehaviour
             level2 = false;
             level3 = false;
         }
+        //Playerへのゲージダメージは10
+        _player.GaugeDamage = 10;
     }
 
     void Level2()
@@ -123,6 +159,8 @@ public class EnemyLevel : MonoBehaviour
             level2 = false;
             level3 = false;
         }
+        //Playerへのゲージダメージは15
+        _player.GaugeDamage = 15;
     }
 
     void Level3()
@@ -144,5 +182,7 @@ public class EnemyLevel : MonoBehaviour
             level2 = false;
             level3 = false;
         }
+        //Playerへのゲージダメージは20
+        _player.GaugeDamage = 20;
     }
 }

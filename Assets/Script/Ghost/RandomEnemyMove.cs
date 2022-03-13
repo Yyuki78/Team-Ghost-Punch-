@@ -26,6 +26,10 @@ public class RandomEnemyMove : MonoBehaviour
     //úpújÇÃÉåÉxÉã
     private EnemyLevel _level;
 
+    //ç°úpújÇ≈Ç´ÇÈÇ©Ç«Ç§Ç©
+    private EnemyStatus _status;
+    private EnemyMove _move;
+
     // Use this for initialization
     void Start()
     {
@@ -37,11 +41,15 @@ public class RandomEnemyMove : MonoBehaviour
         elapsedTime = 0f;
         _level = GetComponent<EnemyLevel>();
         _agent = GetComponent<NavMeshAgent>();
+        _status = GetComponent<EnemyStatus>();
+        _move = GetComponent<EnemyMove>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_status.IsRunnable) return;
+        if (!_move.RanWalk) return;
         if (_level.level2 == true || _level.level3 == true)
         {
             if (_level.level2 == true)
@@ -56,7 +64,7 @@ public class RandomEnemyMove : MonoBehaviour
                 velocity = Vector3.zero;
                 direction = (destination - transform.position).normalized;
                 //transform.LookAt(new Vector3(destination.x, transform.position.y, destination.z));
-                velocity = direction * _agent.speed;
+                velocity = direction * (_agent.speed + 1f);
                 //Debug.Log(destination);
 
                 velocity.y += Physics.gravity.y * Time.deltaTime;

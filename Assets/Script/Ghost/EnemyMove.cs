@@ -9,7 +9,7 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask; // レイヤーマスク
     const string LayerName1 = "Default";
-    const string LayerName2 = "Nothing";
+    const string LayerName2 = "EnemySerch";
     private int mask;
 
     private EnemyLevel _level;

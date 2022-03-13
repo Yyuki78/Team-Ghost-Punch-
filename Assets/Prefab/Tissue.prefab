@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4358025339905769681}
   - component: {fileID: 4358025339905769680}
   - component: {fileID: 4358025339905769711}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tissue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
