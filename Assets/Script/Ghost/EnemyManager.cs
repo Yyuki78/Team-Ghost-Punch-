@@ -58,10 +58,6 @@ public class EnemyManager : MonoBehaviour
         _status5 = Enemy5.GetComponent<EnemyStatus>();
         _status6 = Enemy6.GetComponent<EnemyStatus>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -96,6 +92,11 @@ public class EnemyManager : MonoBehaviour
         {
             once6 = true;
             StrongEvent++;
+        }
+        //ŠÔØ‚ê‚ÍÅ‘åƒŒƒxƒ‹‚É‹­§•ÏX
+        if (Timer.TimeOut == true)
+        {
+            StrongEvent = 6;
         }
 
         //StrongEvent‚Ì”‚É‰‚¶‚ÄEnemy‚ğ‹­‰»‚·‚é•Ï”‚ğ‘—‚é

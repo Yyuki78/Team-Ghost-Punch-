@@ -19,6 +19,10 @@ public class EnemyLevel : MonoBehaviour
     //RandomEnemyWalkに渡して徘徊するための変数
     public bool level2 = false;
     public bool level3 = false;
+    //チャージAreaが消えるまでの時間を変える用
+    [SerializeField] GameObject Mirror;
+    MirrorManager _mirror;
+    private bool once = true;
 
     private void Awake()
     {
@@ -29,6 +33,7 @@ public class EnemyLevel : MonoBehaviour
         _attack = GetComponent<EnemyAttack>();
         _agent = GetComponent<NavMeshAgent>();
         _player = Player.GetComponent<Player>();
+        _mirror = Mirror.GetComponent<MirrorManager>();
     }
 
     // Update is called once per frame
@@ -180,9 +185,16 @@ public class EnemyLevel : MonoBehaviour
     {
         //Enemyの3分の2を倒すことでこの段階になる
         //ユーレイは部屋の中を普通に歩き回る
-        //追いかける速度は人よりほんの僅かに遅い程度--> 2.5 ?
+        //追いかける速度は人よりほんの僅かに遅い程度--> 2.2
         //検知範囲は6
-        _agent.speed = 2.2f;
+        if (Timer.TimeOut == true)//時間切れ
+        {
+            _agent.speed = 2.5f;
+        }
+        else
+        {
+            _agent.speed = 2.2f;
+        }
         _collider.radius = 8.0f;
         //NormalStateの時は徘徊する(Level3は普通に動き回る)
         if (_move.RanWalk == true)
@@ -199,5 +211,11 @@ public class EnemyLevel : MonoBehaviour
         _player.GaugeDamage = 20;
         //攻撃のクールダウンは1.0f
         _attack.attackCooldown = 1.0f;
+        //チャージエリアがすぐに消えるようになる
+        if (once == true)
+        {
+            _mirror.Level3();
+            once = false;
+        }
     }
 }

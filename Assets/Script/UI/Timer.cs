@@ -11,9 +11,14 @@ public class Timer : MonoBehaviour
     int displayHour = 0;
     bool plus = false;
 
+    //ëºÇÃScriptÇ≈ïœçXÇÕÇµÇ»Ç¢
+    //égópÇµÇΩScriptÇÕEnemyManager,EnemyStatus,EnemyLevel
+    public static bool TimeOut = false;
+
     private void Start()
     {
         text = GetComponent<Text>();
+        TimeOut = false;
     }
 
     // Update is called once per frame
@@ -34,6 +39,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
+            TimeOut = true;
             text.text = (displayHour - 6).ToString("00") + ":" + displaySecond.ToString("00");
 
             if (text.color.a < 0.1f)

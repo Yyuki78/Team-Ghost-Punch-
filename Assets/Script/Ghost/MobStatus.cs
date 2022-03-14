@@ -47,7 +47,7 @@ public abstract class MobStatus : MonoBehaviour
     /// </summary>
     public float Life => _life;
 
-    [SerializeField] private float lifeMax = 10; // ライフ最大値
+    [SerializeField] private float lifeMax = 6; // ライフ最大値
     protected Animator _animator;
     protected StateEnum _state = StateEnum.Normal; // Mob状態
     private float _life; // 現在のライフ値（ヒットポイント）
@@ -118,5 +118,13 @@ public abstract class MobStatus : MonoBehaviour
         if (_state == StateEnum.Die) return;
 
         _state = StateEnum.Normal;
+    }
+
+    //HPを全回復する
+    public void FullRecovery()
+    {
+        if (_state == StateEnum.Die) return;
+
+        _life = lifeMax;
     }
 }

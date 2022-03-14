@@ -21,12 +21,6 @@ public class MirrorManager : MonoBehaviour
     private float Timer4 = 8f;
     private float Timer5 = 8f;
 
-    private float NowTimer1;
-    private float NowTimer2;
-    private float NowTimer3;
-    private float NowTimer4;
-    private float NowTimer5;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +78,30 @@ public class MirrorManager : MonoBehaviour
         if (Timer5 <= 0)
         {
             _charge5.FinishArea = true;
+        }
+    }
+
+    public void Level3()
+    {
+        if (_charge1.FinishArea == false && Timer1 > 3f)
+        {
+            Timer1 = 3f;
+        }
+        if (_charge2.FinishArea == false && Timer2 > 3f)
+        {
+            Timer2 = 3f;
+        }
+        if (_charge3.FinishArea == false && Timer3 > 3f)
+        {
+            Timer3 = 3f;
+        }
+        if (_charge4.FinishArea == false && Timer4 > 3f)
+        {
+            Timer4 = 3f;
+        }
+        if (_charge5.FinishArea == false && Timer5 > 3f)
+        {
+            Timer5 = 3f;
         }
     }
 }

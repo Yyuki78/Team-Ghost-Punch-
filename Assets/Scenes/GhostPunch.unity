@@ -14973,6 +14973,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: c9ce16926ae384e9caf1c8fd7cce9b64, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ce16926ae384e9caf1c8fd7cce9b64, type: 3}
 --- !u!1001 &1338332851
@@ -14982,6 +14986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48709414}
     m_Modifications:
+    - target: {fileID: 2542426839679969631, guid: 74a25df40c3b04973a5b358b57d34384, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4313586312269855154, guid: 74a25df40c3b04973a5b358b57d34384, type: 3}
       propertyPath: m_Name
       value: PlayerGhost
@@ -18819,6 +18827,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1602192505}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -18826,6 +18838,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy1
@@ -21652,6 +21668,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -21659,6 +21679,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy6
@@ -22608,6 +22632,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -22615,6 +22643,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy4
@@ -22826,6 +22858,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -22833,6 +22869,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy2
@@ -23849,6 +23889,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -23856,6 +23900,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy3
@@ -29026,6 +29074,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798930546786412731, guid: 44426a79cf0f11e44988ea0c7b4cef16, type: 3}
     - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: Mirror
+      value: 
+      objectReference: {fileID: 2144325084}
+    - target: {fileID: 5586306235391689463, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 316544152}
@@ -29033,6 +29085,10 @@ PrefabInstance:
       propertyPath: EnemyManager
       value: 
       objectReference: {fileID: 1809753766}
+    - target: {fileID: 5841786588371165136, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5952925299402192285, guid: 9dceef1da1f544aac9a7ea866b144779, type: 3}
       propertyPath: m_Name
       value: GhostEnemy5
@@ -30233,6 +30289,10 @@ PrefabInstance:
     - target: {fileID: 7157998100684322146, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316198251381755044, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9015141937689025608, guid: 495ac30c7b17a48eab3461fb7065c49b, type: 3}
       propertyPath: m_RootOrder

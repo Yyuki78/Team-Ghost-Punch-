@@ -26,6 +26,11 @@ public class EnemyStatus : MobStatus
         Debug.Log(_state);
         // NavMeshAgentのvelocityで移動速度のベクトルが取得できる
         _animator.SetFloat("MoveSpeed", _agent.velocity.magnitude);
+        if (Timer.TimeOut == true && once == false)
+        {
+            once = true;
+            FullRecovery();
+        }
     }
 
     protected override void OnDie()
@@ -40,7 +45,6 @@ public class EnemyStatus : MobStatus
         if (RunEnable == false) return;
         Debug.Log("追いかけます");
         _animator.SetBool("Run", true);
-        once = true;
         base.GoToRunStateIfPossible();
     }
 

@@ -98,10 +98,10 @@ public class ColorChange : MonoBehaviour
     public IEnumerator Transparent3()
     {
         //‘¬‚­Œ©‚¦‚é‚æ‚¤‚É‚È‚é
-        for (int i = 0; i < 51; i++)
+        for (int i = 0; i < 120; i++)
         {
             if (sprite.material.color.a >= 1f) break;
-            sprite.material.color = sprite.material.color + new Color32(0, 0, 0, 5);
+            sprite.material.color = sprite.material.color + new Color32(0, 0, 0, 2);
             yield return new WaitForSeconds(0.01f);
         }
         sprite.material.color = new Color32(255, 255, 255, 255);
