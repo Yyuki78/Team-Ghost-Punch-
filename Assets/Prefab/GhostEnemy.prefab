@@ -306,6 +306,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   RanWalk: 1
+  StageEffect: {fileID: 0}
+  thunder: 0
 --- !u!114 &1950288186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +373,7 @@ MonoBehaviour:
   Charge: 0
   level2: 0
   level3: 0
+  Mirror: {fileID: 0}
 --- !u!114 &1912004362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095124624972be0469beb39052116122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 1.5
   attackCollider: {fileID: 1396189783}
   attckone: 1
   player: {fileID: 0}
@@ -434,7 +438,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952925299402192285}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -454,6 +458,7 @@ GameObject:
   - component: {fileID: 5952925300519115577}
   - component: {fileID: 730481145}
   - component: {fileID: 1232723351379787889}
+  - component: {fileID: 1318341255}
   m_Layer: 10
   m_Name: Gohst_temp01
   m_TagString: Untagged
@@ -559,3 +564,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1318341255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952925300519115719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd1b9fd804db1e42bedb3913a3a9a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 5952925299402192285}

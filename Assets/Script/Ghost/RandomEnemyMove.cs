@@ -56,9 +56,12 @@ public class RandomEnemyMove : MonoBehaviour
             if (_level.level2 == true)
             {
                 setPosition.distance = 4;
-            }else if (_level.level3 == true)
+                waitTime = 3f;
+            }
+            else if (_level.level3 == true)
             {
                 setPosition.distance = 6;
+                waitTime = 2f;
             }
             if (!arrived)
             {
@@ -72,16 +75,13 @@ public class RandomEnemyMove : MonoBehaviour
                 //enemyController.Move(velocity * Time.deltaTime);
                 transform.position += velocity * Time.deltaTime;
 
-                /*
+                elapsedTime += Time.deltaTime;
                 //　目的地に到着したかどうかの判定
                 if (Vector3.Distance(transform.position, destination) < 0.5f)
                 {
                     arrived = true;
-                }*/
-                //　到着していたら
-
-                elapsedTime += Time.deltaTime;
-                if (elapsedTime > waitTime)
+                }//時間切れでも次に行く
+                else if(elapsedTime > waitTime)
                 {
                     arrived = true;
                 }

@@ -14,57 +14,70 @@ public class ColorChange : MonoBehaviour
     [SerializeField] GameObject StageEffect;
     private ThunderEffect _thunder;
 
+    DieEffect _dieEffect;
+
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 0);
         _player = Player.GetComponent<Player>();
         _thunder = StageEffect.GetComponent<ThunderEffect>();
+        _dieEffect = GetComponent<DieEffect>();
     }
     void Update()
     {
-        if (_player.IsDead == false && _player.IsChargeMode == false && once == false && once2 == false)
+        //Ž©•ª‚ªŽ€‚ñ‚Å‚½‚çŽ~‚ß‚é
+        if (_dieEffect.StopChange == true)
         {
-            once2 = true;
+            Debug.Log("“G‚ªˆê‘Ì“|‚ê‚Ü‚µ‚½");
             StopAllCoroutines();
-            StartCoroutine("Transparent");
+            Destroy(this);
         }
-        if (once == true)
+        else
         {
-            if (_player.IsChargeMode == true)
+            if (_player.IsDead == false && _player.IsChargeMode == false && once == false && once2 == false)
             {
+                once2 = true;
                 StopAllCoroutines();
-                StartCoroutine("Transparent3");
-                once = false;
+                StartCoroutine("Transparent");
             }
-            if (_player.IsDead == true)
+            if (once == true)
             {
-                StopAllCoroutines();
+                if (_player.IsChargeMode == true)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine("Transparent3");
+                    once = false;
+                }
+                if (_player.IsDead == true)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine("Transparent2");
+                    once = false;
+                }
+            }
+            if (_thunder.canSee == true)
+            {
+                canSee();
+            }
+            /*
+            if (_player.IsChargeMode == true && once == true && _player.IsDead == false)
+            {
+                StopCoroutine("Trasparent2");
                 StartCoroutine("Transparent2");
                 once = false;
             }
+            if (_player.IsDead == true && once == true && _player.IsChargeMode == false)
+            {
+                StopCoroutine("Trasparent2");
+                StartCoroutine("Transparent2");
+                once = false;
+            }
+            if (_thunder.canSee == true && _player.IsDead == false && _player.IsChargeMode == false)
+            {
+                canSee();
+            }*/
         }
-        if (_thunder.canSee == true)
-        {
-            canSee();
-        }
-        /*
-        if (_player.IsChargeMode == true && once == true && _player.IsDead == false)
-        {
-            StopCoroutine("Trasparent2");
-            StartCoroutine("Transparent2");
-            once = false;
-        }
-        if (_player.IsDead == true && once == true && _player.IsChargeMode == false)
-        {
-            StopCoroutine("Trasparent2");
-            StartCoroutine("Transparent2");
-            once = false;
-        }
-        if (_thunder.canSee == true && _player.IsDead == false && _player.IsChargeMode == false)
-        {
-            canSee();
-        }*/
     }
 
     public IEnumerator Transparent()
