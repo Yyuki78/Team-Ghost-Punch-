@@ -522,6 +522,8 @@ MonoBehaviour:
   m_changingActionTime: 1
   IsDirection: 0
   m_chargePower: 0
+  Life: 10
+  GaugeDamage: 10
 --- !u!135 &8593288488034866974
 SphereCollider:
   m_ObjectHideFlags: 0

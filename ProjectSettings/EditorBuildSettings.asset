@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: dc07cce9cb39cf84a932acaadcac051b
+  - enabled: 1
+    path: Assets/Scenes/GhostPunch.unity
+    guid: 8ff993bf38dac4aca927fa5f967b5066
   m_configObjects: {}

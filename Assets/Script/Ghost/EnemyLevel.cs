@@ -96,15 +96,15 @@ public class EnemyLevel : MonoBehaviour
         Charge = true;
         if (_manager.IsLevel1)
         {
-            _collider.radius = 6.0f;
+            _collider.radius = 10.0f;
         }
         else if (_manager.IsLevel2)
         {
-            _collider.radius = 8.0f;
+            _collider.radius = 12.0f;
         }
         else
         {
-            _collider.radius = 10.0f;
+            _collider.radius = 14.0f;
         }
         //level2 = false;
         //level3 = false;

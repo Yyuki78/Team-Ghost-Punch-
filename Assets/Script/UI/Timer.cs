@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     int displayHour = 0;
     bool plus = false;
 
+    private int LimitHour = 5;
+
     //‘¼‚ÌScript‚Å•ÏX‚Í‚µ‚È‚¢
     //g—p‚µ‚½Script‚ÍEnemyManager,EnemyStatus,EnemyLevel
     public static bool TimeOut = false;
@@ -33,14 +35,14 @@ public class Timer : MonoBehaviour
             displayHour++;
             displaySecond = 0;
         }
-        if (displayHour < 6)
+        if (displayHour < LimitHour)
         {
-            text.text = (18 + displayHour).ToString() + ":" + displaySecond.ToString("00");
+            text.text = (24 - LimitHour + displayHour).ToString() + ":" + displaySecond.ToString("00");
         }
         else
         {
             TimeOut = true;
-            text.text = (displayHour - 6).ToString("00") + ":" + displaySecond.ToString("00");
+            text.text = (displayHour - LimitHour).ToString("00") + ":" + displaySecond.ToString("00");
 
             if (text.color.a < 0.1f)
             {

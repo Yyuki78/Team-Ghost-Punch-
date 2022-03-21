@@ -17,7 +17,8 @@ public class LifeGauge : MonoBehaviour
     private void Start()
     {
         _image = GetComponent<Image>();
-        StartCoroutine("Transparent");
+        _image.color = new Color32(255, 255, 255, 0);
+        fillImage.color = new Color32(255, 255, 255, 0);
     }
 
     private void Update()
@@ -79,6 +80,8 @@ public class LifeGauge : MonoBehaviour
             fillImage.color = _image.color - new Color32(0, 0, 0, 1);
             yield return new WaitForSeconds(0.01f);
         }
+        _image.color = new Color32(255, 255, 255, 0);
+        fillImage.color = new Color32(255, 255, 255, 0);
         yield break;
     }
 }

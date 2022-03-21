@@ -438,7 +438,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952925299402192285}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -577,3 +577,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 5952925299402192285}
+  StopChange: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MirrorManager : MonoBehaviour
 {
+    [SerializeField] float MaxTime = 8f;
     [SerializeField] GameObject Mirror1;
     [SerializeField] GameObject Mirror2;
     [SerializeField] GameObject Mirror3;
@@ -15,11 +16,11 @@ public class MirrorManager : MonoBehaviour
     PlayerCharge _charge4;
     PlayerCharge _charge5;
 
-    private float Timer1 = 8f;
-    private float Timer2 = 8f;
-    private float Timer3 = 8f;
-    private float Timer4 = 8f;
-    private float Timer5 = 8f;
+    private float Timer1;
+    private float Timer2;
+    private float Timer3;
+    private float Timer4;
+    private float Timer5;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,11 @@ public class MirrorManager : MonoBehaviour
         _charge3 = Mirror3.GetComponent<PlayerCharge>();
         _charge4 = Mirror4.GetComponent<PlayerCharge>();
         _charge5 = Mirror5.GetComponent<PlayerCharge>();
+        Timer1 = MaxTime;
+        Timer2 = MaxTime;
+        Timer3 = MaxTime;
+        Timer4 = MaxTime;
+        Timer5 = MaxTime;
     }
 
     // Update is called once per frame

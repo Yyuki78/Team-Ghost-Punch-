@@ -41,7 +41,7 @@ public class DieEffect : MonoBehaviour
         for (int i = 0; i < 122; i++)
         {
             if (sprite.material.color.a <= 0f) break;
-            sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 2);
+            sprite.material.color = sprite.material.color - new Color32(0, 0, 0, 3);
             //_transforom.transform.localPosition = _transforom.transform.localPosition - new Vector3(0, 0.3f, 0);
             yield return new WaitForSeconds(0.01f);
         }

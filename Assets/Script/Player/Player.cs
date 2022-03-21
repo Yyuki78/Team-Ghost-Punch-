@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         //EnemyAttackを元にしたPlayerAttackを作成->ここではそれを呼ぶ処理のみ
         //Animetionの部分は入れていない
         //取り合えず右クリックで攻撃できるように
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0) || Input.GetButton("Charge"))
         {
             if (_attack.attackcol == true && m_isGhostObject == true)
             {

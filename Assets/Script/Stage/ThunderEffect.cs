@@ -14,11 +14,14 @@ public class ThunderEffect : MonoBehaviour
 
     public bool canSee = false;
 
+    //タイトルでは起動しない
+    public bool IsTutrial = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine("showThunder");
+        if(!IsTutrial) StartCoroutine("showThunder");
     }
 
     private IEnumerator showThunder()
