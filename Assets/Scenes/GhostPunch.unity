@@ -19268,6 +19268,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5258215460853350827, guid: 4dd01f9d94ad04ac6b7ee2b42ee10e2a, type: 3}
+      propertyPath: m_audios.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258215460853350827, guid: 4dd01f9d94ad04ac6b7ee2b42ee10e2a, type: 3}
+      propertyPath: m_aroundPlayerDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258215460853350827, guid: 4dd01f9d94ad04ac6b7ee2b42ee10e2a, type: 3}
+      propertyPath: m_audios.Array.data[4].m_numGhost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258215460853350827, guid: 4dd01f9d94ad04ac6b7ee2b42ee10e2a, type: 3}
+      propertyPath: m_audios.Array.data[4].m_snapshot
+      value: 
+      objectReference: {fileID: -7099437047808879665, guid: 24f4e9df24c274017b041f1c091f8282, type: 2}
     - target: {fileID: 5258215460853350828, guid: 4dd01f9d94ad04ac6b7ee2b42ee10e2a, type: 3}
       propertyPath: m_Name
       value: GameLogic

@@ -119,7 +119,7 @@ public class Tutrial : MonoBehaviour
 
     private IEnumerator ShowWASD()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         if (_transform.position == pos)
         {
             WASD.SetActive(true);
