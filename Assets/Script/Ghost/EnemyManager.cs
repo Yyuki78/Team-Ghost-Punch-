@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -48,6 +50,11 @@ public class EnemyManager : MonoBehaviour
 
     private int StrongEvent = 0;//Enemyの強化段階を切り替える用の変数
 
+    [SerializeField] Volume _volume;
+    private LiftGammaGain _gamma;
+    private int changeTime = 250;
+    private bool change = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,6 +64,8 @@ public class EnemyManager : MonoBehaviour
         _status4 = Enemy4.GetComponent<EnemyStatus>();
         _status5 = Enemy5.GetComponent<EnemyStatus>();
         _status6 = Enemy6.GetComponent<EnemyStatus>();
+        _volume.profile.TryGet<LiftGammaGain>(out _gamma);
+        _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.05f);
     }
 
     // Update is called once per frame
@@ -124,6 +133,36 @@ public class EnemyManager : MonoBehaviour
             //追いかける速度は人よりほんの僅かに遅い程度--> 2.5 ?
             //検知範囲は6
             _level = LevelEnum.Level3;
+        }
+
+        if (changeTime >= 250)
+        {
+            change = false;
+        }
+        if (changeTime <= 0)
+        {
+            change = true;
+        }
+        //Enemyが一体でもHumanを追いかけている時、Effectがかかる
+        if (change == false)
+        {
+            changeTime--;
+            _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.0005f);
+            if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
+            {
+                changeTime -= 2;
+                _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.001f);
+            }
+        }
+        else
+        {
+            changeTime++;
+            _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.0005f);
+            if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
+            {
+                changeTime += 2;
+                _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.001f);
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ public class ThunderEffect : MonoBehaviour
     {
         while (true)
         {
-            Interval = Random.Range(5f, 15f);
+            Interval = Random.Range(10f, 20f);
             yield return new WaitForSeconds(Interval);
             audioSource.PlayOneShot(sound1);
             Thunder.SetActive(true);

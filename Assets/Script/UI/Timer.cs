@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Timer : MonoBehaviour
 {
@@ -17,9 +19,24 @@ public class Timer : MonoBehaviour
     //g—p‚µ‚½Script‚ÍEnemyManager,EnemyStatus,EnemyLevel
     public static bool TimeOut = false;
 
+    //ŠÔØ‚ê‚ÌSE
+    public AudioClip sound1;
+    [SerializeField] AudioSource audioSource;
+
+    //ŠÔØ‚ê‚ÌEffect
+    [SerializeField] Volume _volume;
+    private Vignette _vignette;
+    private FilmGrain _film;
+
+    private bool once = true;
+
     private void Start()
     {
         text = GetComponent<Text>();
+
+        _volume.profile.TryGet<Vignette>(out _vignette);
+        _volume.profile.TryGet<FilmGrain>(out _film);
+
         TimeOut = false;
     }
 
@@ -28,7 +45,7 @@ public class Timer : MonoBehaviour
     {
         Debug.Log(text.color.a);
         // countTime‚ÉAƒQ[ƒ€‚ªŠJn‚µ‚Ä‚©‚ç‚Ì•b”‚ğŠi”[
-        countTime += Time.deltaTime;
+        countTime += Time.deltaTime * 1;
         displaySecond = (int)countTime - (displayHour * 60);
         if (displaySecond >= 60)
         {
@@ -42,6 +59,12 @@ public class Timer : MonoBehaviour
         else
         {
             TimeOut = true;
+            if (once == true)
+            {
+                once = false;
+                audioSource.PlayOneShot(sound1);
+                _vignette.intensity.value = 0.6f;
+            }
             text.text = (displayHour - LimitHour).ToString("00") + ":" + displaySecond.ToString("00");
 
             if (text.color.a < 0.1f)
@@ -55,6 +78,7 @@ public class Timer : MonoBehaviour
             if (plus == false)
             {
                 text.color = text.color - new Color(0, 0, 0, 0.01f);
+
             }
             else
             {
