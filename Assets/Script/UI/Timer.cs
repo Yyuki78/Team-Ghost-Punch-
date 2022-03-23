@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
     [SerializeField] Volume _volume;
     private Vignette _vignette;
     private FilmGrain _film;
+    private LiftGammaGain _gamma;
 
     private bool once = true;
 
@@ -36,6 +37,7 @@ public class Timer : MonoBehaviour
 
         _volume.profile.TryGet<Vignette>(out _vignette);
         _volume.profile.TryGet<FilmGrain>(out _film);
+        _volume.profile.TryGet<LiftGammaGain>(out _gamma);
 
         TimeOut = false;
     }
@@ -45,12 +47,13 @@ public class Timer : MonoBehaviour
     {
         Debug.Log(text.color.a);
         // countTime‚ÉAƒQ[ƒ€‚ªŠJŽn‚µ‚Ä‚©‚ç‚Ì•b”‚ðŠi”[
-        countTime += Time.deltaTime * 1;
+        countTime += Time.deltaTime * 10;
         displaySecond = (int)countTime - (displayHour * 60);
         if (displaySecond >= 60)
         {
             displayHour++;
             displaySecond = 0;
+            _gamma.gain.value = _gamma.gain.value - new Vector4(0, 0, 0, 0.1f);
         }
         if (displayHour < LimitHour)
         {
