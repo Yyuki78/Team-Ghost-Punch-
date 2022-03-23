@@ -19,13 +19,14 @@ public class GameLogic : MonoBehaviour
 	public class EnemyInfo {
 		public GameObject Enemy;
 		public NavMeshAgent Agent;
+        public EnemyStatus Status;
 
 		// temp
 		public bool IsAround { set; get; } = false;
 		public bool CanSee { set; get; } = false;
 		public bool IsDead { set; get; } = false;
 
-		public SpriteRenderer renderer { set; get; } = null;
+        public SpriteRenderer renderer { set; get; } = null;
 		public Material material { set; get; } = null;
 
 		public void ResetEveryFrame() {
@@ -43,7 +44,7 @@ public class GameLogic : MonoBehaviour
 	float m_aroundPlayerDistance = 10.0f;
 	[SerializeField]
 	float m_canSeeDistance = 3.0f;
-	[SerializeField]
+	//[SerializeField]
 	int m_currentAroundEnemy = 0;
 	[SerializeField]
 	float m_crossFadeTime = 1.0f;
@@ -55,15 +56,17 @@ public class GameLogic : MonoBehaviour
 	AudioMixerSnapshot[] m_snapshots = null;
 	int m_lastMatchIdx = -1;
 
+    [SerializeField] GameObject EnemyManager;
+    private EnemyManager _manager;
 
 
-
-	public void Start() {
+    public void Start() {
 		var ghosts = GameObject.FindGameObjectsWithTag("EnemyGhost");
 		foreach(var ghost in ghosts) {
 			var info = new EnemyInfo();
 			info.Enemy = ghost;
 			info.Agent = ghost.GetComponent<NavMeshAgent>();
+            info.Status = ghost.GetComponent<EnemyStatus>();
 			info.renderer = ghost.GetComponentInChildren<SpriteRenderer>();
 			info.material = info.renderer.material;
 		}
@@ -82,7 +85,8 @@ public class GameLogic : MonoBehaviour
 		}
 		m_snapshots = snaps.ToArray();
 
-	}
+        _manager = EnemyManager.GetComponent<EnemyManager>();
+    }
 
 	public void Update() {
 		checkGhostAroundPlayer();
@@ -91,7 +95,7 @@ public class GameLogic : MonoBehaviour
 	}
 
 	public void checkGhostAroundPlayer() {
-
+        /*
 		m_currentAroundEnemy = 0;
 		foreach(var enemy in m_enemys) {
 			enemy.ResetEveryFrame();
@@ -110,7 +114,24 @@ public class GameLogic : MonoBehaviour
 					}
 				}
 			}
-		}
+		}*/
+        
+        m_currentAroundEnemy = 0;
+        if (m_player.IsDead)
+        {
+            m_currentAroundEnemy = 100;
+        } else if (_manager.IsRunAnyone)
+        {
+            m_currentAroundEnemy = 2;
+        }else if (_manager.IsDeadGhost3)
+        {
+            m_currentAroundEnemy = 4;
+        }
+        else
+        {
+            m_currentAroundEnemy = 0;
+        }
+        Debug.Log(m_currentAroundEnemy);
 	}
 
 	/*

@@ -38,6 +38,11 @@ public abstract class MobStatus : MonoBehaviour
     public bool IsRunState => StateEnum.Run == _state;
 
     /// <summary>
+    /// ’Ç‚¢‚©‚¯‚Ä‚¢‚é‚©‚Ç‚¤‚©+UŒ‚‚àŠÜ‚Ş
+    /// </summary>
+    public bool IsChangeBGM => StateEnum.Run == _state || StateEnum.Attack == _state;
+
+    /// <summary>
     /// €‚ñ‚Å‚¢‚é‚©‚Ç‚¤‚©
     /// </summary>
     public bool IsDie => StateEnum.Die == _state;

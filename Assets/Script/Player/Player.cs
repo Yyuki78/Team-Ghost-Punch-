@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     GameObject m_playerGhost = null;
     GameObject m_playerHuman = null;
 
+    Player _player;
+
     //PlayerAttackに関するもの
     PlayerAttack _attack;
 
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
         m_animator = GetComponentInChildren<Animator>();
         m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         m_playerHuman = GameObject.FindGameObjectWithTag("Player");
+        _player = m_playerHuman.GetComponent<Player>();
         m_playerGhost = GameObject.FindGameObjectWithTag("PlayerGhost");
         m_audioSource = GetComponent<AudioSource>();
         _attack = m_playerGhost.GetComponent<PlayerAttack>();
@@ -86,9 +89,12 @@ public class Player : MonoBehaviour
         {
             if (_attack.attackcol == true && m_isGhostObject == true)
             {
-                Debug.Log("Enemyに攻撃します1");
-                _attack.AttackIfPossible();
-                m_animator.SetTrigger("Attack");
+                if (_player.m_chargePower > 0)
+                {
+                    Debug.Log("Enemyに攻撃します1");
+                    _attack.AttackIfPossible();
+                    m_animator.SetTrigger("Attack");
+                }
             }
         }
     }

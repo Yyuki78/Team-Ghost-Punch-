@@ -15,10 +15,13 @@ public class EnemyManager : MonoBehaviour
         Level2, // 途中
         Level3, // 最後
     }
-    private LevelEnum _level = LevelEnum.Level1; // EnemyのLevel
-                                                 /// <summary>
-                                                 /// Level1かどうか
-                                                 /// </summary>
+
+    // EnemyのLevel
+    private LevelEnum _level = LevelEnum.Level1; 
+
+    /// <summary>
+    /// Level1かどうか
+    /// </summary>
     public bool IsLevel1 => LevelEnum.Level1 == _level;
     /// <summary>
     /// Level2かどうか
@@ -54,6 +57,10 @@ public class EnemyManager : MonoBehaviour
     private LiftGammaGain _gamma;
     private int changeTime = 250;
     private bool change = false;
+
+    //GameLogicで使う
+    public bool IsRunAnyone = false;
+    public bool IsDeadGhost3 => StrongEvent >= 3;
 
     // Start is called before the first frame update
     void Awake()
@@ -109,7 +116,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         //StrongEventの数に応じてEnemyを強化する変数を送る
-        if (StrongEvent >= 0 && StrongEvent <= 2)
+        if (StrongEvent >= 0 && StrongEvent <= 1)
         {
             //初めの状態、Enemyの3分の1を倒すまで続く
             //ユーレイは基本的に部屋に居て、自分からは余り動かない
@@ -117,7 +124,7 @@ public class EnemyManager : MonoBehaviour
             //検知範囲は4
             _level = LevelEnum.Level1;
         }
-        else if (StrongEvent == 3 || StrongEvent == 4)
+        else if (StrongEvent == 2 || StrongEvent == 3)
         {
             //Enemyの3分の1を倒すことでこの段階になる
             //Enemyの3分の2を倒すまで続く
@@ -163,6 +170,15 @@ public class EnemyManager : MonoBehaviour
                 changeTime += 2;
                 _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.001f);
             }
+        }
+
+        if (_status1.IsChangeBGM || _status2.IsChangeBGM || _status3.IsChangeBGM || _status4.IsChangeBGM || _status5.IsChangeBGM || _status6.IsChangeBGM)
+        {
+            IsRunAnyone = true;
+        }
+        else
+        {
+            IsRunAnyone = false;
         }
     }
 }

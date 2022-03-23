@@ -57,6 +57,7 @@ public class ShowHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IEnumerator coroutine = HitEffect();
         switch (_player._life)
         {
             case 9:
@@ -65,8 +66,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = true;
                     once2 = false;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 8:
@@ -75,8 +77,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = false;
                     once2 = true;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 7:
@@ -85,8 +88,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = true;
                     once2 = false;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 6:
@@ -95,8 +99,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = false;
                     once2 = true;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 5:
@@ -105,8 +110,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = true;
                     once2 = false;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 4:
@@ -115,8 +121,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = false;
                     once2 = true;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 3:
@@ -125,8 +132,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = true;
                     once2 = false;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 2:
@@ -135,8 +143,9 @@ public class ShowHP : MonoBehaviour
                 {
                     once = false;
                     once2 = true;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 1:
@@ -145,12 +154,21 @@ public class ShowHP : MonoBehaviour
                 {
                     once = true;
                     once2 = false;
-                    StopCoroutine(HitEffect());
-                    StartCoroutine(HitEffect());
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
                 }
                 break;
             case 0:
                 HP1.SetActive(false);
+                if (once == true)
+                {
+                    once = false;
+                    once2 = true;
+                    StopCoroutine(coroutine);
+                    coroutine = HitEffect();
+                    StartCoroutine(coroutine);
+                }
                 break;
             default:
                 break;

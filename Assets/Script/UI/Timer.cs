@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
     {
         Debug.Log(text.color.a);
         // countTime‚ÉAƒQ[ƒ€‚ªŠJŽn‚µ‚Ä‚©‚ç‚Ì•b”‚ðŠi”[
-        countTime += Time.deltaTime * 10;
+        countTime += Time.deltaTime * 1;
         displaySecond = (int)countTime - (displayHour * 60);
         if (displaySecond >= 60)
         {
