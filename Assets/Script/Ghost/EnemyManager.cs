@@ -142,33 +142,40 @@ public class EnemyManager : MonoBehaviour
             _level = LevelEnum.Level3;
         }
 
-        if (changeTime >= 250)
+        if (GameOver.gameover)
         {
-            change = false;
-        }
-        if (changeTime <= 0)
-        {
-            change = true;
-        }
-        //Enemy‚ªˆê‘Ì‚Å‚àHuman‚ð’Ç‚¢‚©‚¯‚Ä‚¢‚éŽžAEffect‚ª‚©‚©‚é
-        if (change == false)
-        {
-            changeTime--;
-            _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.0005f);
-            if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
-            {
-                changeTime -= 2;
-                _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.001f);
-            }
+
         }
         else
         {
-            changeTime++;
-            _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.0005f);
-            if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
+            if (changeTime >= 250)
             {
-                changeTime += 2;
-                _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.001f);
+                change = false;
+            }
+            if (changeTime <= 0)
+            {
+                change = true;
+            }
+            //Enemy‚ªˆê‘Ì‚Å‚àHuman‚ð’Ç‚¢‚©‚¯‚Ä‚¢‚éŽžAEffect‚ª‚©‚©‚é
+            if (change == false)
+            {
+                changeTime--;
+                _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.0005f);
+                if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
+                {
+                    changeTime -= 2;
+                    _gamma.gamma.value = _gamma.gamma.value - new Vector4(0, 0, 0, 0.001f);
+                }
+            }
+            else
+            {
+                changeTime++;
+                _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.0005f);
+                if (_status1.IsRunState || _status2.IsRunState || _status3.IsRunState || _status4.IsRunState || _status5.IsRunState || _status6.IsRunState)
+                {
+                    changeTime += 2;
+                    _gamma.gamma.value = _gamma.gamma.value + new Vector4(0, 0, 0, 0.001f);
+                }
             }
         }
 

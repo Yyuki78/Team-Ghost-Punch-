@@ -59,6 +59,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] GameObject EnemyManager;
     private EnemyManager _manager;
 
+    private GameOver _over;
 
     public void Start() {
 		var ghosts = GameObject.FindGameObjectsWithTag("EnemyGhost");
@@ -86,9 +87,15 @@ public class GameLogic : MonoBehaviour
 		m_snapshots = snaps.ToArray();
 
         _manager = EnemyManager.GetComponent<EnemyManager>();
+
+        _over = GetComponent<GameOver>();
     }
 
 	public void Update() {
+        if(m_player._life <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 		checkGhostAroundPlayer();
 		//updateGhostVisibility();
 		updateAudio();
@@ -123,13 +130,13 @@ public class GameLogic : MonoBehaviour
         } else if (_manager.IsRunAnyone)
         {
             m_currentAroundEnemy = 2;
-        }else if (_manager.IsDeadGhost3)
+        } else if (_manager.IsDeadGhost3)
         {
             m_currentAroundEnemy = 4;
         }
         else
         {
-            m_currentAroundEnemy = 0;
+            m_currentAroundEnemy = -100;
         }
         Debug.Log(m_currentAroundEnemy);
 	}

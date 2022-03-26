@@ -78,25 +78,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         updateMove();
-        updateCharge();
-
-        //ゴーストの攻撃の処理
-        //攻撃中は動けない(まだ未実装)
-        //EnemyAttackを元にしたPlayerAttackを作成->ここではそれを呼ぶ処理のみ
-        //Animetionの部分は入れていない
-        //取り合えず右クリックで攻撃できるように
-        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0) || Input.GetButton("Charge"))
+        if (Life > 0)
         {
-            if (_attack.attackcol == true && m_isGhostObject == true)
-            {
-                if (_player.m_chargePower > 0)
-                {
-                    Debug.Log("Enemyに攻撃します1");
-                    _attack.AttackIfPossible();
-                    m_animator.SetTrigger("Attack");
-                }
-            }
+            updateCharge();
+            updateAttack();
         }
+        else
+        {
+            updateLife();
+        }
+        
     }
 
     void updateMove()
@@ -305,5 +296,67 @@ public class Player : MonoBehaviour
     public void DamageGhost()
     {
         m_chargePower -= GaugeDamage;
+    }
+
+    private void updateAttack()
+    {
+        //ゴーストの攻撃の処理
+        //攻撃中は動けない
+        //EnemyAttackを元にしたPlayerAttackを作成->ここではそれを呼ぶ処理のみ
+        //取り合えずクリックで攻撃できるように
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0) || Input.GetButton("Charge"))
+        {
+            if (_attack.attackcol == true && m_isGhostObject == true)
+            {
+                if (_player.m_chargePower > 0)
+                {
+                    Debug.Log("Enemyに攻撃します1");
+                    _attack.AttackIfPossible();
+                    m_animator.SetTrigger("Attack");
+                }
+            }
+        }
+        if(m_isGhostObject == true)
+        {
+            if(_attack.attackcol == false)
+            {
+                EnableMove = false;
+            }
+            else
+            {
+                EnableMove = true;
+            }
+        }
+    }
+
+    private void updateLife()
+    {
+        //Lifeが0の時に動けなくなる＋死ぬ
+        if (Life <= 0)
+        {
+            if (m_isGhostObject == false)
+            {
+                EnableMove = false;
+                IsDead = false;
+                _attack.attackcol = false;
+                if (m_changingTimer < 0.8f)
+                {
+                    m_animator.SetBool("SwitchGhost", true);
+                    m_changingTimer = m_changingActionTime;
+                }
+                else
+                {
+                    m_changingTimer -= Time.deltaTime;
+                    if (m_changingTimer < 0.8f)
+                    {
+                        // 変身ポーズ後、ゴースト化
+                        m_animator.SetBool("SwitchGhost", false);
+                        m_animator.SetBool("Charge", false);
+                        m_animator.SetBool("Dead", true);
+                        m_changingTimer = -1.0f;
+                    }
+                }
+            }
+        }
     }
 }

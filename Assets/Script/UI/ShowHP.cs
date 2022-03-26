@@ -25,12 +25,18 @@ public class ShowHP : MonoBehaviour
     [SerializeField] Volume _volume;
     private Vignette _vignette;
     private FilmGrain _film;
+    private Bloom _bloom;
+    private LensDistortion _lens;
+    [SerializeField] GameObject GameOverPanel;
 
     private bool once = true;
     private bool once2 = true;
 
     [SerializeField] GameObject Player;
     Player _player;
+
+    AudioSource _source;
+    [SerializeField] AudioClip DamageSE;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +56,13 @@ public class ShowHP : MonoBehaviour
 
         _volume.profile.TryGet<Vignette>(out _vignette);
         _volume.profile.TryGet<FilmGrain>(out _film);
+        _volume.profile.TryGet<Bloom>(out _bloom);
+        _volume.profile.TryGet<LensDistortion>(out _lens);
+        GameOverPanel.SetActive(false);
 
         _player = Player.GetComponent<Player>();
+
+        _source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -166,8 +177,8 @@ public class ShowHP : MonoBehaviour
                     once = false;
                     once2 = true;
                     StopCoroutine(coroutine);
-                    coroutine = HitEffect();
-                    StartCoroutine(coroutine);
+                    //coroutine = HitEffect();
+                    StartCoroutine(GameOverEffect());
                 }
                 break;
             default:
@@ -180,8 +191,9 @@ public class ShowHP : MonoBehaviour
         hitImg.color = new Color(0.2f, 0, 0, 0.3f);
         _film.intensity.value = 0.75f;
         _vignette.intensity.value = 0.6f;
+        _source.PlayOneShot(DamageSE);
 
-        for(int i = 0; i < 30; i++)
+        for (int i = 0; i < 30; i++)
         {
             hitImg.color = hitImg.color - new Color(0f, 0, 0, 0.01f);
             _vignette.intensity.value = _vignette.intensity.value - 0.01f;
@@ -190,6 +202,28 @@ public class ShowHP : MonoBehaviour
         _film.intensity.value = 0f;
         _vignette.intensity.value = 0.4f;
         hitImg.color = new Color(0.2f, 0, 0, 0);
+        yield break;
+    }
+
+    private IEnumerator GameOverEffect()
+    {
+        hitImg.color = new Color(0.2f, 0, 0, 0.3f);
+        _film.intensity.value = 0.9f;
+        _vignette.intensity.value = 0.6f;
+
+        for (int i = 0; i < 10; i++)
+        {
+            hitImg.color = hitImg.color + new Color(0f, 0, 0, 0.01f);
+            _vignette.intensity.value = _vignette.intensity.value + 0.1f;
+
+            _lens.intensity.value = _lens.intensity.value - 0.05f;
+            _bloom.intensity.value = _bloom.intensity.value + 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        GameOverPanel.SetActive(true);
+        _film.intensity.value = 0.9f;
+        _vignette.intensity.value = 0.99f;
+        hitImg.color = new Color(0.2f, 0, 0, 1f);
         yield break;
     }
 }
