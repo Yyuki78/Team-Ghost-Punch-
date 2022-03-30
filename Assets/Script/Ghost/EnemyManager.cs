@@ -62,6 +62,10 @@ public class EnemyManager : MonoBehaviour
     public bool IsRunAnyone = false;
     public bool IsDeadGhost3 => StrongEvent >= 3;
 
+    //GameOverMessage‚ÅŽg‚¤
+    public bool IsDeadGhostNone => StrongEvent == 0;
+    public bool IsDeadGhostFive => StrongEvent == 5;
+
     // Start is called before the first frame update
     void Awake()
     {

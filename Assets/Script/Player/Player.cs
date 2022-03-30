@@ -290,7 +290,7 @@ public class Player : MonoBehaviour
     //体への攻撃か幽体への攻撃かで分ける
     public void DamageBody()
     {
-        Life--;
+        Life-=5;
     }
 
     public void DamageGhost()

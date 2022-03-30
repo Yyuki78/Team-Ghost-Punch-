@@ -13,12 +13,17 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Collider attackColliderLeft;
     public bool attackone = true;
     public bool attackcol = true;
+
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Awake()
     {
         _player = GetComponent<Player>();
         attackColliderRight.enabled = false;
         attackColliderLeft.enabled = false;
+        audioSource = GetComponent<AudioSource>();
     }
     /// <summary>
     /// UŒ‚‰Â”\‚Èó‘Ô‚Å‚ ‚ê‚ÎUŒ‚‚ğs‚¢‚Ü‚·B
@@ -77,6 +82,7 @@ public class PlayerAttack : MonoBehaviour
         {
             attackColliderLeft.enabled = true;
         }
+        audioSource.PlayOneShot(sound1);
         yield return new WaitForSeconds(0.5f);
         attackColliderRight.enabled = false;
         attackColliderLeft.enabled = false;

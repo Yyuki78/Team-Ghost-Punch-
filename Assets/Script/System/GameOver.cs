@@ -31,6 +31,10 @@ public class GameOver : MonoBehaviour
 
     private bool once = true;
 
+    //GameOverPanelObject
+    [SerializeField] GameObject Message;
+    [SerializeField] GameObject Button;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,9 @@ public class GameOver : MonoBehaviour
         _image = Image.GetComponent<Image>();
         _source = GetComponent<AudioSource>();
         gameover = false;
+        Message.SetActive(false);
+        Button.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -49,10 +56,10 @@ public class GameOver : MonoBehaviour
         }
         if (gameover == true)
         {
-            Time.timeScale = 0.1f;
             if (once == true)
             {
                 once = false;
+                Time.timeScale = 0.1f;
                 _image.sprite = sprite;
                 StartCoroutine(GameOverCroutine());
             }
@@ -62,8 +69,14 @@ public class GameOver : MonoBehaviour
     private IEnumerator GameOverCroutine()
     {
         _source.PlayOneShot(GameOverSE);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         _source.PlayOneShot(GameOverBGM);
+        yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 0.75f;
+        yield return new WaitForSeconds(3.3f);
+        Message.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        Button.SetActive(true);
         yield break;
     }
 }

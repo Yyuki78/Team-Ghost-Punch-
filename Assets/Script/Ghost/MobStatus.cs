@@ -62,6 +62,9 @@ public abstract class MobStatus : MonoBehaviour
     protected StateEnum _state = StateEnum.Normal; // Mob状態
     private float _life; // 現在のライフ値（ヒットポイント）
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     protected virtual void Start()
     {
         _life = lifeMax; // 初期状態はライフ満タン
@@ -69,6 +72,8 @@ public abstract class MobStatus : MonoBehaviour
 
         // ライフゲージの表示開始
         LifeGaugeContainer.Instance.Add(this);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -89,7 +94,7 @@ public abstract class MobStatus : MonoBehaviour
         if (_state == StateEnum.Die) return;
 
         LifeGaugeContainer.Instance.Show(this);
-
+        audioSource.PlayOneShot(sound1);
         _life -= damage;
         if (_life > 0) return;
 
