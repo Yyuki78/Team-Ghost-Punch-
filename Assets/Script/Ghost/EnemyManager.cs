@@ -52,6 +52,7 @@ public class EnemyManager : MonoBehaviour
     bool once6 = false;
 
     private int StrongEvent = 0;//Enemyの強化段階を切り替える用の変数
+    private int DeathGhost = 0;//死んだ敵の数
 
     [SerializeField] Volume _volume;
     private LiftGammaGain _gamma;
@@ -63,8 +64,11 @@ public class EnemyManager : MonoBehaviour
     public bool IsDeadGhost3 => StrongEvent >= 3;
 
     //GameOverMessageで使う
-    public bool IsDeadGhostNone => StrongEvent == 0;
-    public bool IsDeadGhostFive => StrongEvent == 5;
+    public bool IsDeadGhostNone => DeathGhost == 0;
+    public bool IsDeadGhostFive => DeathGhost == 5;
+
+    //GameClearで使う
+    public bool IsDeadAllEnemy => DeathGhost == 6;
 
     // Start is called before the first frame update
     void Awake()
@@ -87,31 +91,37 @@ public class EnemyManager : MonoBehaviour
         {
             once1 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         if (_status2.Life == 0 && once2 == false)
         {
             once2 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         if (_status3.Life == 0 && once3 == false)
         {
             once3 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         if (_status4.Life == 0 && once4 == false)
         {
             once4 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         if (_status5.Life == 0 && once5 == false)
         {
             once5 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         if (_status6.Life == 0 && once6 == false)
         {
             once6 = true;
             StrongEvent++;
+            DeathGhost++;
         }
         //時間切れ時は最大レベルに強制変更
         if (Timer.TimeOut == true)

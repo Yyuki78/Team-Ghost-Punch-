@@ -31,6 +31,9 @@ public class Timer : MonoBehaviour
 
     private bool once = true;
 
+    //GmaeClear—p‚ÌŽžŠÔŒv‘ª
+    public int IsTimer => (int)countTime;
+
     private void Start()
     {
         text = GetComponent<Text>();

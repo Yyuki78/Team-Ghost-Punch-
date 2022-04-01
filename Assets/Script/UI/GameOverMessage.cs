@@ -9,13 +9,17 @@ public class GameOverMessage : MonoBehaviour
 
     private int randomMessage;
 
-    [SerializeField] GameObject EnemyManager;
+    [SerializeField] GameObject EnemyManager1;
     private EnemyManager _manager;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        _manager = EnemyManager.GetComponent<EnemyManager>();
+        _manager = EnemyManager1.GetComponent<EnemyManager>();
+    }
+
+    public void updateMessage()
+    {
         randomMessage = Random.Range(1, 5);
         switch (randomMessage)
         {
@@ -44,7 +48,9 @@ public class GameOverMessage : MonoBehaviour
                     text.text += "\nà‚Ì‰¹‚ª‚·‚éc";
                     break;
             }
-        }else if (_manager.IsDeadGhostNone)
+            return;
+        }
+        if (_manager.IsDeadGhostNone)
         {
             randomMessage = Random.Range(1, 3);
             switch (randomMessage)
@@ -56,7 +62,9 @@ public class GameOverMessage : MonoBehaviour
                     text.text += "\n‚»‚ñ‚È“ú‚à‚ ‚é‚³c";
                     break;
             }
-        }else if (_manager.IsDeadGhostFive)
+            return;
+        }
+        if (_manager.IsDeadGhostFive)
         {
             randomMessage = Random.Range(1, 3);
             switch (randomMessage)
@@ -68,6 +76,8 @@ public class GameOverMessage : MonoBehaviour
                     text.text += "\n( LÍM )";
                     break;
             }
+            return;
         }
+        return;
     }
 }

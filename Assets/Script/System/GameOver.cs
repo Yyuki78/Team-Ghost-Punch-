@@ -20,6 +20,9 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject Player;
     private Player _player;
 
+    [SerializeField] GameObject GameOverMessage;
+    private GameOverMessage _message;
+
     //PlayerÇÃHPÉoÅ[ÇÃâÊëú
     [SerializeField] GameObject Image;
     private Image _image;
@@ -39,6 +42,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         _player = Player.GetComponent<Player>();
+        _message = GameOverMessage.GetComponent<GameOverMessage>();
         _image = Image.GetComponent<Image>();
         _source = GetComponent<AudioSource>();
         gameover = false;
@@ -75,6 +79,7 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0.75f;
         yield return new WaitForSeconds(3.3f);
         Message.SetActive(true);
+        _message.updateMessage();
         yield return new WaitForSeconds(0.5f);
         Button.SetActive(true);
         yield break;

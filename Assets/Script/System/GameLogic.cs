@@ -92,7 +92,7 @@ public class GameLogic : MonoBehaviour
     }
 
 	public void Update() {
-        if(m_player._life <= 0)
+        if (m_player._life <= 0 || GameClear.gameclear)
         {
             Destroy(this.gameObject);
         }
