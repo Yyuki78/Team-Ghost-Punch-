@@ -176,7 +176,7 @@ public class EnemyLevel : MonoBehaviour
             level3 = false;
         }
         //Playerへのゲージダメージは15
-        _player.GaugeDamage = 15;
+        _player.GaugeDamage = 13;
         //攻撃のクールダウンは1.5f
         _attack.attackCooldown = 1.5f;
     }
@@ -208,7 +208,7 @@ public class EnemyLevel : MonoBehaviour
             level3 = false;
         }
         //Playerへのゲージダメージは20
-        _player.GaugeDamage = 20;
+        _player.GaugeDamage = 16;
         //攻撃のクールダウンは1.0f
         _attack.attackCooldown = 1.0f;
         //チャージエリアがすぐに消えるようになる

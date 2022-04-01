@@ -252,6 +252,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37402038b17ac4b57ae760ba40758e07, type: 3}
+--- !u!114 &154200331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 695004643202599490, guid: 37402038b17ac4b57ae760ba40758e07, type: 3}
+  m_PrefabInstance: {fileID: 154200330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155702838 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 94b8765d3a722cc43bb0b1537cb1a32f, type: 3}
@@ -884,6 +895,10 @@ PrefabInstance:
       propertyPath: StageEffect
       value: 
       objectReference: {fileID: 618548471}
+    - target: {fileID: 1970282796331360769, guid: 3b608b367054dcc418b391c9d441c466, type: 3}
+      propertyPath: _volume
+      value: 
+      objectReference: {fileID: 154200331}
     - target: {fileID: 1970282796491157033, guid: 3b608b367054dcc418b391c9d441c466, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.42
@@ -5426,7 +5441,11 @@ MonoBehaviour:
   HP8: {fileID: 2868166382598421616}
   HP9: {fileID: 2868166381898140321}
   HP10: {fileID: 2868166381542097404}
+  hitImg: {fileID: 0}
+  _volume: {fileID: 0}
+  GameOverPanel: {fileID: 0}
   Player: {fileID: 0}
+  DamageSE: {fileID: 0}
 --- !u!224 &2868166381042833444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7041,6 +7060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40801cabc06837146aeb792bcf087d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound1: {fileID: 0}
+  audioSource: {fileID: 0}
+  _volume: {fileID: 0}
 --- !u!222 &2868166382079529471
 CanvasRenderer:
   m_ObjectHideFlags: 0
