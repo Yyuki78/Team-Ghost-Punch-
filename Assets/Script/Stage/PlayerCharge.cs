@@ -11,6 +11,11 @@ public class PlayerCharge : MonoBehaviour
     public bool FinishArea = false;
     public bool ChargeTime = false;
 
+    private void Start()
+    {
+        IsCharging = false;
+    }
+
     public void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player"))
